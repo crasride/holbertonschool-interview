@@ -1,7 +1,20 @@
 #!/usr/bin/python3
 
-# Function canUnlockAll that takes a list of boxes as an argument.
+'''
+Function canUnlockAll that takes a list of boxes as an argument.
+'''
+
+
 def canUnlockAll(boxes):
+    """
+    Determines if all the locked boxes can be opened.
+    Args:
+        boxes (list of list): List of boxes where each box contains keys to
+        other boxes.
+    Returns:
+        bool: True if all boxes can be opened, False otherwise.
+    """
+
     n = len(boxes)
     visited = [False] * n
     # List to track if a box has been visited.
