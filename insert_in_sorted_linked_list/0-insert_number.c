@@ -6,65 +6,52 @@
  *
  * Return: the newly created linked list node
  */
-
 listint_t *newnode(int number)
 {
-	/* Allocate memory for a new node and assign its address to 'new' */
-	listint_t *new = malloc(sizeof(*new));
+	listint_t *new_node;
 
-	/* Check if memory allocation was successful */
-	if (new)
-	{
-		/* Assign the 'number' value to the 'n' field of the new node */
-		new->n = number;
+	/* Allocate memory for the new node */
+	new_node = malloc(sizeof(*new_node));
+	if (!new_node)
+		return (NULL);
 
-		/* Initialize the 'next' field of the new node as NULL */
-		new->next = NULL;
-	}
+	/* Assign the value to the 'n' field of the new node */
+	new_node->n = number;
 
-	/*Return the 'new' pointer, which can be NULL if memory allocation failed */
-	return (new);
+	/* Initialize the 'next' field as NULL */
+	new_node->next = NULL;
+
+	return (new_node);
 }
 
 /**
- * insert_node - inserts a node into the linked list in sorted order
+ * insert_node - inserts a node into the linked list in a sorted order
  * @head: pointer to the pointer of the head node
  * @number: value to assign to the node
  *
  * Return: the newly created node, NULL if it fails
  */
-
 listint_t *insert_node(listint_t **head, int number)
 {
-	/* Call the 'newnode' function to create a new node with 'number' */
-	listint_t *new = newnode(number);
+	listint_t **current_ptr, *new_node;
+
+	/* Initialize 'current_ptr' with the address of 'head' */
+	current_ptr = head;
+
+	/* Create a new node using 'newnode' function */
+	new_node = newnode(number);
 
 	/* Check if creating the new node was successful */
-	if (!new)
+	if (!new_node)
 		return (NULL);
 
-	/**
-	 * Create a double pointer 'current' and initialize it with the address
-	 * of the 'head' pointer
-	 */
-	listint_t **current = head;
+	/* Traverse the list until finding the correct position for insertion */
+	while (*current_ptr && new_node->n > (*current_ptr)->n)
+		current_ptr = &(*current_ptr)->next;
 
-	/**
-	 * Traverse 'current' through the list until finding the correct position
-	 * to insert the new node
-	 */
-	while (*current && new->n > (*current)->n)
-		current = &(*current)->next;
+	/* Insert the new node into the list */
+	new_node->next = *current_ptr;
+	*current_ptr = new_node;
 
-	/* Link the new node with the current node */
-	new->next = *current;
-
-	/* Update the current pointer to point to the new node */
-	*current = new;
-
-	/* Return the pointer to the head node, which might have been updated */
 	return (*head);
 }
-
-
-
