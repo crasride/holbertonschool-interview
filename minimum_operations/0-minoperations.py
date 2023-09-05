@@ -1,5 +1,6 @@
 #!/usr/bin/python3
 '''
+minimum copy all and paste operations to reach n characters
 '''
 
 
