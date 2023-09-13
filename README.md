@@ -1,4 +1,4 @@
-<h1 align="center">Holberton School-Interview </h1>
+<h1 align="center">Holberton School - Preparation - Algorithms</h1>
 
 [Project Badge Lockboxes](./lockboxes/)
 
