@@ -1,11 +1,10 @@
 <h1 align="center">Holberton School - Preparation - Algorithms</h1>
 
-<div style="text-align: center">
+<h2 style="text-align: center">
 <img width="75" height="75" src="./images/c.webp" style="display: inline-block;">
 <img width="75" height="75" src="./images/python.png" style="display: inline-block;">
-</div>
+</h2>
 
-#
 
 [Project Badge Lockboxes](./lockboxes/)
 <details>
