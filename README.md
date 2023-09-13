@@ -5,7 +5,6 @@
 	<img width="75" height="75" src="./images/python.png" alt="Python Logo">
 </p>
 
-#
 
 [Project Badge Lockboxes](./lockboxes/)
 <details>
