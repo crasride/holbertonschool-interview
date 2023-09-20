@@ -26,11 +26,15 @@
 <summary>Description</summary>
 </details>
 
-[linked_list_palindrome](./linked_list_palindrome/)
+[Sandpiles](./sandpiles/)
 <details>
 <summary>Description</summary>
 </details>
 
+[linked_list_palindrome](./linked_list_palindrome/)
+<details>
+<summary>Description</summary>
+</details>
 
 
 
