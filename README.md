@@ -26,10 +26,12 @@
 <summary>Description</summary>
 </details>
 
-[Sandpiles](./sandpiles/)
+[Sandpiles](./linked_list_palindrome/)
 <details>
 <summary>Description</summary>
 </details>
+
+
 
 
 ## Author
