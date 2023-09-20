@@ -26,7 +26,7 @@
 <summary>Description</summary>
 </details>
 
-[Sandpiles](./linked_list_palindrome/)
+[linked_list_palindrome](./linked_list_palindrome/)
 <details>
 <summary>Description</summary>
 </details>
