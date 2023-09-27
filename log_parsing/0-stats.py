@@ -1,18 +1,18 @@
 #!/usr/bin/python3
 import sys
+import traceback
 
 
 def print_stats(total_size, status_codes):
-    """
-    Print statistics including total file size and status code counts.
-    """
+    """ Print statistics including total file size and status code counts """
     print("File size: {}".format(total_size))
     for code in sorted(status_codes.keys()):
         if status_codes[code] > 0:
             print("{}: {}".format(code, status_codes[code]))
 
+
 def main():
-    """Parses a log"""
+    """ Parses a log """
     total_size = 0
     status_codes = {
         200: 0,
@@ -43,12 +43,13 @@ def main():
                 print_stats(total_size, status_codes)
 
     except KeyboardInterrupt:
-        pass  # Handle CTRL+C gracefully
+        traceback.print_exc()  # Print the traceback when interrupted
+        sys.exit(1)  # Exit with a non-zero status code
 
     finally:
         # Print the final statistics
         print_stats(total_size, status_codes)
 
+
 if __name__ == "__main__":
     main()
-
