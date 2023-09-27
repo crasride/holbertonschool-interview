@@ -1,6 +1,8 @@
 #!/usr/bin/python3
 import sys
 
+"""Parses a log"""
+
 def print_stats(total_size, status_codes):
     """
     Print statistics including total file size and status code counts.
