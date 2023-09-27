@@ -1,4 +1,5 @@
 #!/usr/bin/python3
+""" Script that reads stdin line """
 import sys
 import traceback
 
@@ -49,6 +50,7 @@ def main():
         sys.exit(1)  # Exit with a non-zero status code
 
     finally:
+        """ """
         # Print the final statistics
         print_stats(total_size, status_codes)
 
