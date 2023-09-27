@@ -1,7 +1,6 @@
 #!/usr/bin/python3
 import sys
 
-"""Parses a log"""
 
 def print_stats(total_size, status_codes):
     """
@@ -13,6 +12,7 @@ def print_stats(total_size, status_codes):
             print("{}: {}".format(code, status_codes[code]))
 
 def main():
+    """Parses a log"""
     total_size = 0
     status_codes = {
         200: 0,
