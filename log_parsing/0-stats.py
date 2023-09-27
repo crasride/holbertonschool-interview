@@ -27,6 +27,7 @@ def main():
     line_count = 0
 
     try:
+        """ Read stdin line by line """
         for line in sys.stdin:
             # Split the input line into parts
             parts = line.split()
@@ -43,6 +44,7 @@ def main():
                 print_stats(total_size, status_codes)
 
     except KeyboardInterrupt:
+        """ Keyboard interruption """
         traceback.print_exc()  # Print the traceback when interrupted
         sys.exit(1)  # Exit with a non-zero status code
 
