@@ -33,7 +33,10 @@ def main():
             # Split the input line into parts
             parts = line.split()
             if len(parts) >= 7:
-                status_code = int(parts[-2])
+                try:
+                    status_code = int(parts[-2])
+                except ValueError:
+                    continue
                 file_size = int(parts[-1])
                 if status_code in status_codes:
                     status_codes[status_code] += 1
