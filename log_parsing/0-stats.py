@@ -1,8 +1,6 @@
 #!/usr/bin/python3
-""" Script that reads stdin line """
-import sys
-import traceback
 
+import sys
 
 def print_stats(total_size, status_codes):
     """ Print statistics including total file size and status code counts """
@@ -10,7 +8,6 @@ def print_stats(total_size, status_codes):
     for code in sorted(status_codes.keys()):
         if status_codes[code] > 0:
             print("{}: {}".format(code, status_codes[code]))
-
 
 def main():
     """ Parses a log """
@@ -33,11 +30,17 @@ def main():
             # Split the input line into parts
             parts = line.split()
             if len(parts) >= 7:
+                status_code_str = parts[-2]
                 try:
-                    status_code = int(parts[-2])
+                    status_code = int(status_code_str)
                 except ValueError:
-                    continue
-                file_size = int(parts[-1])
+                    continue  # Skip lines with invalid status codes
+                file_size_str = parts[-1]
+                try:
+                    file_size = int(file_size_str)
+                except ValueError:
+                    continue  # Skip lines with invalid file sizes
+
                 if status_code in status_codes:
                     status_codes[status_code] += 1
                 total_size += file_size
@@ -49,14 +52,11 @@ def main():
 
     except KeyboardInterrupt:
         """ Keyboard interruption """
-        traceback.print_exc()  # Print the traceback when interrupted
-        sys.exit(1)  # Exit with a non-zero status code
+        pass  # Continue processing
 
     finally:
-        """ """
-        # Print the final statistics
+        """ Print the final statistics """
         print_stats(total_size, status_codes)
-
 
 if __name__ == "__main__":
     main()
