@@ -1,63 +1,50 @@
 #!/usr/bin/python3
-""" Script that reads stdin line """
-import sys
-import traceback
+"""Parses a log"""
+from sys import stdin
 
-# Definir los índices para el tamaño del archivo y el código de estado
+# Índices de las posiciones en la línea
 FILE_SIZE_INDEX = -1
 STATUS_CODE_INDEX = -2
 
-def print_stats(total_size, status_codes):
-    """ Print statistics including total file size and status code counts """
-    print("File size: {}".format(total_size))
-    for code in sorted(status_codes.keys()):
-        if status_codes[code] > 0:
-            print("{}: {}".format(code, status_codes[code]))
+if __name__ == "__main__":
+    def print_statistics():
+        """Imprime el tamaño del archivo y los códigos de estado junto con sus ocurrencias"""
+        print("Tamaño del archivo:", current_file_size)
+        for code, count in sorted(status_counts.items()):
+            if count:
+                print("{}: {}".format(code, count))
 
-def main():
-    """ Parses a log """
-    total_size = 0
-    status_codes = {
-        200: 0,
-        301: 0,
-        400: 0,
-        401: 0,
-        403: 0,
-        404: 0,
-        405: 0,
-        500: 0,
-    }
-    line_count = 0
+    def parse_log(current_file_size):
+        """Incrementa el recuento de códigos de estado y el tamaño del archivo según el contenido de la línea
+
+        Args:
+            current_file_size: tamaño actual del archivo
+
+        Returns:
+            current_file_size
+        """
+        line_parts = line.split()
+        try:
+            current_file_size += int(line_parts[FILE_SIZE_INDEX])
+            status_code = line_parts[STATUS_CODE_INDEX]
+            if status_code in status_counts:
+                status_counts[status_code] += 1
+        except Exception:
+            pass
+        return current_file_size
 
     try:
-        """ Read stdin line by line """
-        for line in sys.stdin:
-            # Split the input line into parts
-            parts = line.split()
-            if len(parts) >= 7:
-                try:
-                    status_code = int(parts[STATUS_CODE_INDEX])
-                    file_size = int(parts[FILE_SIZE_INDEX])
-                except (ValueError, IndexError):
-                    continue
-                if status_code in status_codes:
-                    status_codes[status_code] += 1
-                total_size += file_size
-                line_count += 1
-
-            # Print statistics every 10 lines
+        current_file_size = 0
+        line_count = 1
+        status_counts = {"200": 0, "301": 0, "400": 0, "401": 0, "403": 0, "404": 0,
+                         "405": 0, "500": 0}
+        for line in stdin:
+            current_file_size = parse_log(current_file_size)
             if line_count % 10 == 0:
-                print_stats(total_size, status_codes)
-
+                print_statistics()
+            line_count += 1
+        print_statistics()
     except KeyboardInterrupt:
-        """ Keyboard interruption """
-        traceback.print_exc()  # Print the traceback when interrupted
-        sys.exit(1)  # Exit with a non-zero status code
+        print_statistics()
+        raise
 
-    finally:
-        """ """
-        # Print the final statistics
-        print_stats(total_size, status_codes)
-
-if __name__ == "__main__":
-    main()
