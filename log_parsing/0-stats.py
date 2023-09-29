@@ -1,3 +1,5 @@
+#!/usr/bin/python3
+""" Script that reads stdin line """
 import sys
 import traceback
 
