@@ -36,18 +36,19 @@ def main():
         for line in sys.stdin:
             # Split the input line into parts
             parts = line.split(" ")
-            if len(parts) < 7:
-                continue  # Skip lines with insufficient parts
-            
-            try:
-                status_code = int(parts[STATUS_CODE_INDEX])
-                file_size = int(parts[FILE_SIZE_INDEX])
-            except (ValueError, IndexError):
-                continue
-            if status_code in status_codes:
-                status_codes[status_code] += 1
-            total_size += file_size
-            line_count += 1
+            if len(parts) >= 7:
+                try:
+                    status_code = int(parts[STATUS_CODE_INDEX])
+                    file_size = int(parts[FILE_SIZE_INDEX])
+                except (ValueError, IndexError):
+                    continue
+                if status_code in status_codes:
+                    status_codes[status_code] += 1
+                total_size += file_size
+                line_count += 1
+            else:
+                # Handle wrong format by counting it
+                status_codes["Wrong Format"] = status_codes.get("Wrong Format", 0) + 1
 
             # Print statistics every 10 lines
             if line_count % 10 == 0:
@@ -60,9 +61,8 @@ def main():
 
     finally:
         """ """
-        # Print the final statistics
+        # Print the final statistics, including wrong format count
         print_stats(total_size, status_codes)
 
 if __name__ == "__main__":
     main()
-
