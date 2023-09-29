@@ -35,7 +35,7 @@ def main():
         """ Read stdin line by line """
         for line in sys.stdin:
             # Split the input line into parts
-            parts = line.split()
+            parts = line.split(" ")
             if len(parts) >= 7:
                 try:
                     status_code = int(parts[STATUS_CODE_INDEX])
