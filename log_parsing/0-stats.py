@@ -3,15 +3,17 @@
 import sys
 
 
-# crate a dictionary to store the status
-status_dict = {'200': 0,
-               '301': 0,
-               '400': 0,
-               '401': 0,
-               '403': 0,
-               '404': 0,
-               '405': 0,
-               '500': 0}
+
+status_codes ={
+    '200': 0,
+    '301': 0,
+    '400': 0,
+    '401': 0,
+    '403': 0,
+    '404': 0,
+    '405': 0,
+    '500': 0,
+    }
 
 total_size = 0
 count = 0
@@ -19,15 +21,15 @@ count = 0
 try:
     for line in sys.stdin:
         # split the line at each word
-        words_list = line.split(" ")
+        parts = line.split(" ")
 
-        if len(words_list) > 4:
-            file_size = int(words_list[-1])
-            status_code = words_list[-2]
+        if len(parts) > 4:
+            file_size = int(parts[-1])
+            status_code = parts[-2]
 
             # check status code in the dictionary and increment it
-            if status_code in status_dict.keys():
-                status_dict[status_code] += 1
+            if status_code in status_codes.keys():
+                status_codes[status_code] += 1
 
             #  total size
             total_size += file_size
@@ -41,7 +43,7 @@ try:
             print('File size: {}'.format(total_size))
 
             # print out status code counts, sorted by status code
-            for key, value in sorted(status_dict.items()):
+            for key, value in sorted(status_codes.items()):
                 if value != 0:
                     print('{}: {}'.format(key, value))
 
@@ -51,6 +53,6 @@ except Exception as err:
 finally:
     # total size
     print('File size: {}'.format(total_size))
-    for key, value in sorted(status_dict.items()):
+    for key, value in sorted(status_codes.items()):
         if value != 0:
             print('{}: {}'.format(key, value))
