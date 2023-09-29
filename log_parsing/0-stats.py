@@ -37,7 +37,7 @@ def main():
                     status_code = int(parts[-2])
                     file_size = int(parts[-1])
                 except ValueError:
-                    continue  # Skip lines with invalid status code
+                    pass
 
                 if status_code in status_codes:
                     status_codes[status_code] += 1
