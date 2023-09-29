@@ -3,9 +3,10 @@
 import sys
 import traceback
 
-# Define the indices for the file size and status code
+# Definir los índices para el tamaño del archivo y el código de estado
 FILE_SIZE_INDEX = -1
 STATUS_CODE_INDEX = -2
+
 
 def print_stats(total_size, status_codes):
     """ Print statistics including total file size and status code counts """
@@ -13,6 +14,7 @@ def print_stats(total_size, status_codes):
     for code in sorted(status_codes.keys()):
         if status_codes[code] > 0:
             print("{}: {}".format(code, status_codes[code]))
+
 
 def main():
     """ Parses a log """
@@ -34,18 +36,18 @@ def main():
         for line in sys.stdin:
             # Split the input line into parts
             parts = line.split(" ")
-            if len(parts) >= 7:
-                try:
-                    status_code = int(parts[STATUS_CODE_INDEX])
-                    file_size = int(parts[FILE_SIZE_INDEX])
-                except (ValueError, IndexError):
-                    # If there's an error in extracting status code or file size, skip the line
-                    continue
-
-                if status_code in status_codes:
-                    status_codes[status_code] += 1
-                total_size += file_size
-                line_count += 1
+            if len(parts) < 7:
+                continue  # Skip lines with insufficient parts
+            
+            try:
+                status_code = int(parts[STATUS_CODE_INDEX])
+                file_size = int(parts[FILE_SIZE_INDEX])
+            except (ValueError, IndexError):
+                continue
+            if status_code in status_codes:
+                status_codes[status_code] += 1
+            total_size += file_size
+            line_count += 1
 
             # Print statistics every 10 lines
             if line_count % 10 == 0:
