@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-""" Script that reads stdin line """
+""" Script que lee stdin línea por línea """
 import sys
 import traceback
 
@@ -9,15 +9,15 @@ STATUS_CODE_INDEX = -2
 
 
 def print_stats(total_size, status_codes):
-    """ Print statistics including total file size and status code counts """
-    print("File size: {}".format(total_size))
+    """ Imprimir estadísticas, incluyendo el tamaño total del archivo y el recuento de códigos de estado """
+    print("Tamaño del archivo: {}".format(total_size))
     for code in sorted(status_codes.keys()):
         if status_codes[code] > 0:
             print("{}: {}".format(code, status_codes[code]))
 
 
 def main():
-    """ Parses a log """
+    """ Analizar un registro """
     total_size = 0
     status_codes = {
         200: 0,
@@ -32,11 +32,11 @@ def main():
     line_count = 0
 
     try:
-        """ Read stdin line by line """
+        """ Leer stdin línea por línea """
         for line in sys.stdin:
-            # Split the input line into parts
+            # Dividir la línea de entrada en partes
             parts = line.split(" ")
-            if len(parts) >= 4:
+            if len(parts) >= 7:
                 try:
                     status_code = int(parts[STATUS_CODE_INDEX])
                     file_size = int(parts[FILE_SIZE_INDEX])
@@ -47,19 +47,20 @@ def main():
                 total_size += file_size
                 line_count += 1
 
-            # Print statistics every 10 lines
+            # Imprimir estadísticas cada 10 líneas
             if line_count % 10 == 0:
                 print_stats(total_size, status_codes)
 
     except KeyboardInterrupt:
-        """ Keyboard interruption """
-        traceback.print_exc()  # Print the traceback when interrupted
-        sys.exit(1)  # Exit with a non-zero status code
+        """ Interrupción de teclado """
+        traceback.print_exc()  # Imprimir la traza cuando se interrumpe
+        sys.exit(1)  # Salir con un código de estado no cero
 
     finally:
         """ """
-        # Print the final statistics
+        # Imprimir las estadísticas finales
         print_stats(total_size, status_codes)
 
 if __name__ == "__main__":
     main()
+
