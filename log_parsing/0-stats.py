@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-
+""" Script that reads stdin line """
 import sys
 
 def print_stats(total_size, status_codes):
