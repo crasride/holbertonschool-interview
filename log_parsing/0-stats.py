@@ -35,7 +35,12 @@ def main():
             if len(parts) >= 7:
                 try:
                     status_code = int(parts[-2])
-                except ValueError:
+                    file_size = int(parts[-1])
+                    if status_code in status_codes:
+                        status_codes[status_code] += 1
+                    total_size += file_size
+                    line_count += 1
+                except (ValueError, IndexError):
                     continue
                 file_size = int(parts[-1])
                 if status_code in status_codes:
