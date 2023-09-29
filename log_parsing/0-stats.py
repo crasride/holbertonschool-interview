@@ -1,16 +1,19 @@
 #!/usr/bin/python3
-""" Script that reads stdin line """
+""" Script que lee la entrada estándar línea por línea """
 import sys
+import traceback
+
 
 def print_stats(total_size, status_codes):
-    """ Print statistics including total file size and status code counts """
-    print("File size: {}".format(total_size))
+    """ Imprime estadísticas, incluyendo el tamaño total del archivo y el recuento de códigos de estado """
+    print("Tamaño del archivo: {}".format(total_size))
     for code in sorted(status_codes.keys()):
         if status_codes[code] > 0:
             print("{}: {}".format(code, status_codes[code]))
 
+
 def main():
-    """ Parses a log """
+    """ Analiza un registro de registros """
     total_size = 0
     status_codes = {
         200: 0,
@@ -25,38 +28,36 @@ def main():
     line_count = 0
 
     try:
-        """ Read stdin line by line """
+        """ Lee la entrada estándar línea por línea """
         for line in sys.stdin:
-            # Split the input line into parts
+            # Divide la línea de entrada en partes
             parts = line.split()
             if len(parts) >= 7:
-                status_code_str = parts[-2]
                 try:
-                    status_code = int(status_code_str)
-                except ValueError:
-                    continue  # Skip lines with invalid status codes
-                file_size_str = parts[-1]
-                try:
-                    file_size = int(file_size_str)
-                except ValueError:
-                    continue  # Skip lines with invalid file sizes
+                    status_code = int(parts[-2])
+                    file_size = int(parts[-1])
+                except (ValueError, IndexError):
+                    continue  # Salta las líneas con formato incorrecto
 
                 if status_code in status_codes:
                     status_codes[status_code] += 1
                 total_size += file_size
                 line_count += 1
 
-            # Print statistics every 10 lines
+            # Imprime estadísticas cada 10 líneas
             if line_count % 10 == 0:
                 print_stats(total_size, status_codes)
 
     except KeyboardInterrupt:
-        """ Keyboard interruption """
-        pass  # Continue processing
+        """ Interrupción de teclado """
+        traceback.print_exc()  # Imprime la traza cuando se interrumpe
+        sys.exit(1)  # Salir con un código de estado no nulo
 
     finally:
-        """ Print the final statistics """
+        """ """
+        # Imprime las estadísticas finales
         print_stats(total_size, status_codes)
+
 
 if __name__ == "__main__":
     main()
