@@ -3,7 +3,7 @@
 import sys
 import traceback
 
-# Define the indices for the size of the file and the status code
+# Define the indices for the file size and status code
 FILE_SIZE_INDEX = -1
 STATUS_CODE_INDEX = -2
 
@@ -39,8 +39,9 @@ def main():
                     status_code = int(parts[STATUS_CODE_INDEX])
                     file_size = int(parts[FILE_SIZE_INDEX])
                 except (ValueError, IndexError):
-                    print("Skipped line due to wrong format: {}".format(line.strip()))
+                    # If there's an error in extracting status code or file size, skip the line
                     continue
+
                 if status_code in status_codes:
                     status_codes[status_code] += 1
                 total_size += file_size
