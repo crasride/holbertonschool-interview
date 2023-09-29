@@ -1,19 +1,19 @@
 #!/usr/bin/python3
-""" Script que lee la entrada estándar línea por línea """
+""" Script that reads stdin line """
 import sys
 import traceback
 
 
 def print_stats(total_size, status_codes):
-    """ Imprime estadísticas, incluyendo el tamaño total del archivo y el recuento de códigos de estado """
-    print("Tamaño del archivo: {}".format(total_size))
+    """ Print statistics including total file size and status code counts """
+    print("File size: {}".format(total_size))
     for code in sorted(status_codes.keys()):
         if status_codes[code] > 0:
             print("{}: {}".format(code, status_codes[code]))
 
 
 def main():
-    """ Analiza un registro de registros """
+    """ Parses a log """
     total_size = 0
     status_codes = {
         200: 0,
@@ -28,34 +28,33 @@ def main():
     line_count = 0
 
     try:
-        """ Lee la entrada estándar línea por línea """
+        """ Read stdin line by line """
         for line in sys.stdin:
-            # Divide la línea de entrada en partes
+            # Split the input line into parts
             parts = line.split()
             if len(parts) >= 7:
                 try:
                     status_code = int(parts[-2])
-                    file_size = int(parts[-1])
-                except (ValueError, IndexError):
-                    continue  # Salta las líneas con formato incorrecto
-
+                except ValueError:
+                    continue
+                file_size = int(parts[-1])
                 if status_code in status_codes:
                     status_codes[status_code] += 1
                 total_size += file_size
                 line_count += 1
 
-            # Imprime estadísticas cada 10 líneas
+            # Print statistics every 10 lines
             if line_count % 10 == 0:
                 print_stats(total_size, status_codes)
 
     except KeyboardInterrupt:
-        """ Interrupción de teclado """
-        traceback.print_exc()  # Imprime la traza cuando se interrumpe
-        sys.exit(1)  # Salir con un código de estado no nulo
+        """ Keyboard interruption """
+        traceback.print_exc()  # Print the traceback when interrupted
+        sys.exit(1)  # Exit with a non-zero status code
 
     finally:
         """ """
-        # Imprime las estadísticas finales
+        # Print the final statistics
         print_stats(total_size, status_codes)
 
 
