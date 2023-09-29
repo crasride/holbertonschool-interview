@@ -36,13 +36,12 @@ def main():
                 try:
                     status_code = int(parts[-2])
                     file_size = int(parts[-1])
-                except ValueError:
-                    pass
-
-                if status_code in status_codes:
-                    status_codes[status_code] += 1
-                total_size += file_size
-                line_count += 1
+                    if status_code in status_codes:
+                        status_codes[status_code] += 1
+                    total_size += file_size
+                except (ValueError, IndexError):
+                    pass  # Skip lines with incorrect format
+            line_count += 1
 
             # Print statistics every 10 lines
             if line_count % 10 == 0:
