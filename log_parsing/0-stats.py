@@ -36,13 +36,9 @@ def main():
                 try:
                     status_code = int(parts[-2])
                     file_size = int(parts[-1])
-                    if status_code in status_codes:
-                        status_codes[status_code] += 1
-                    total_size += file_size
-                    line_count += 1
-                except (ValueError, IndexError):
-                    continue
-                file_size = int(parts[-1])
+                except ValueError:
+                    continue  # Skip lines with incorrect format
+
                 if status_code in status_codes:
                     status_codes[status_code] += 1
                 total_size += file_size
@@ -51,7 +47,6 @@ def main():
             # Print statistics every 10 lines
             if line_count % 10 == 0:
                 print_stats(total_size, status_codes)
-
     except KeyboardInterrupt:
         """ Keyboard interruption """
         traceback.print_exc()  # Print the traceback when interrupted
