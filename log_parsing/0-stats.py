@@ -39,8 +39,9 @@ def main():
                     if status_code in status_codes:
                         status_codes[status_code] += 1
                     total_size += file_size
-                except (ValueError, IndexError):
-                    pass  # Skip lines with incorrect format
+                except ValueError:
+                    continue  # Skip lines with incorrect format
+
             line_count += 1
 
             # Print statistics every 10 lines
