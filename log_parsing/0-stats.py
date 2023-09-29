@@ -7,12 +7,14 @@ import traceback
 FILE_SIZE_INDEX = -1
 STATUS_CODE_INDEX = -2
 
+
 def print_stats(total_size, status_codes):
     """ Print statistics including total file size and status code counts """
     print("File size: {}".format(total_size))
     for code in sorted(status_codes.keys()):
         if status_codes[code] > 0:
             print("{}: {}".format(code, status_codes[code]))
+
 
 def main():
     """ Parses a log """
