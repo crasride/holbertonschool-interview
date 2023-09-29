@@ -1,25 +1,25 @@
 #!/usr/bin/python3
-""" Script que lee la entrada estándar """
+""" Script that reads stdin line """
 import sys
 import traceback
 
 # Definir los índices para el tamaño del archivo y el código de estado
-INDICE_TAMANO_ARCHIVO = -1
-INDICE_CODIGO_ESTADO = -2
+FILE_SIZE_INDEX = -1
+STATUS_CODE_INDEX = -2
 
 
-def imprimir_estadisticas(tamano_total, codigos_estado):
-    """ Imprime estadísticas, incluyendo el tamaño total del archivo y el recuento de códigos de estado """
-    print("Tamaño del archivo: {}".format(tamano_total))
-    for codigo in sorted(codigos_estado.keys()):
-        if codigos_estado[codigo] > 0:
-            print("{}: {}".format(codigo, codigos_estado[codigo]))
+def print_stats(total_size, status_codes):
+    """ Print statistics including total file size and status code counts """
+    print("File size: {}".format(total_size))
+    for code in sorted(status_codes.keys()):
+        if status_codes[code] > 0:
+            print("{}: {}".format(code, status_codes[code]))
 
 
 def main():
-    """ Analiza un registro """
-    tamano_total = 0
-    codigos_estado = {
+    """ Parses a log """
+    total_size = 0
+    status_codes = {
         200: 0,
         301: 0,
         400: 0,
@@ -29,43 +29,37 @@ def main():
         405: 0,
         500: 0,
     }
-    contador_lineas = 0
+    line_count = 0
 
     try:
-        """ Leer la entrada estándar línea por línea """
-        for linea in sys.stdin:
-            # Dividir la línea de entrada en partes
-            partes = linea.split(" ")
-            if len(partes) >= 7:
+        """ Read stdin line by line """
+        for line in sys.stdin:
+            # Split the input line into parts
+            parts = line.split(" ")
+            if len(parts) >= 7:
                 try:
-                    codigo_estado = int(partes[INDICE_CODIGO_ESTADO])
-                    tamano_archivo = int(partes[INDICE_TAMANO_ARCHIVO])
+                    status_code = int(parts[STATUS_CODE_INDEX])
+                    file_size = int(parts[FILE_SIZE_INDEX])
                 except (ValueError, IndexError):
                     continue
-                
-                # Omitir líneas con formato incorrecto
-                if tamano_archivo < 0:
-                    continue
-                
-                if codigo_estado in codigos_estado:
-                    codigos_estado[codigo_estado] += 1
-                tamano_total += tamano_archivo
-                contador_lineas += 1
+                if status_code in status_codes:
+                    status_codes[status_code] += 1
+                total_size += file_size
+                line_count += 1
 
-            # Imprimir estadísticas cada 10 líneas
-            if contador_lineas % 10 == 0:
-                imprimir_estadisticas(tamano_total, codigos_estado)
+            # Print statistics every 10 lines
+            if line_count % 10 == 0:
+                print_stats(total_size, status_codes)
 
     except KeyboardInterrupt:
-        """ Interrupción de teclado """
-        traceback.print_exc()  # Imprimir la traza cuando se interrumpe
-        sys.exit(1)  # Salir con un código de estado no cero
+        """ Keyboard interruption """
+        traceback.print_exc()  # Print the traceback when interrupted
+        sys.exit(1)  # Exit with a non-zero status code
 
     finally:
         """ """
-        # Imprimir las estadísticas finales
-        imprimir_estadisticas(tamano_total, codigos_estado)
+        # Print the final statistics
+        print_stats(total_size, status_codes)
 
 if __name__ == "__main__":
     main()
-
