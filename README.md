@@ -21,26 +21,30 @@
 <summary>Description</summary>
 </details>
 
-[Minimum Operations](./minimum_operations/)
+[Project Minimum Operations](./minimum_operations/)
 <details>
 <summary>Description</summary>
 </details>
 
-[Sandpiles](./sandpiles/)
+[Project Sandpiles](./sandpiles/)
 <details>
 <summary>Description</summary>
 </details>
 
-[linked_list_palindrome](./linked_list_palindrome/)
+[Project linked_list_palindrome](./linked_list_palindrome/)
 <details>
 <summary>Description</summary>
 </details>
 
-[log_parsing](./log_parsing/)
+[Project log_parsing](./log_parsing/)
 <details>
 <summary>Description</summary>
 </details>
 
+[Project Linked list cycle](./linked_list_cycle/)
+<details>
+<summary>Description</summary>
+</details>
 
 
 ## Author
