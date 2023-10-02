@@ -199,3 +199,10 @@ Linked list has no cycle
 Linked list has a cycle
 carrie@ubuntu:~/0x07$
 ```
+## Repo:
+
+GitHub repository: `holbertonschool-interview`
+
+Directory: `linked_list_cycle`
+
+File: `0-check_cycle.c, lists.h`
