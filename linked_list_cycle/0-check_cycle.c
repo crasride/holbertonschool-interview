@@ -7,27 +7,24 @@
  */
 int check_cycle(listint_t *head)
 {
-	listint_t *current = head;
-	listint_t *current_fast = head;
+    listint_t *current = head;
+    listint_t *current_fast = head;
 
-	while (current && current_fast)
-	{
-		/* Move the current pointer one step at a time */
-		current = current->next;
+    while (current && current_fast && current_fast->next)
+    {
+        /* Move the current pointer one step at a time */
+        current = current->next;
 
-		/* Move the current_fast pointer two steps at a time if possible */
-		if (current_fast->next)
-			current_fast = current_fast->next->next;
-		else
-			current_fast = NULL;
+        /* Move the current_fast pointer two steps at a time */
+        current_fast = current_fast->next->next;
 
-		/* If the current and current_fast pointers meet, there is a cycle */
-		if (current == current_fast)
-			return (1);
-	}
+        /* If the current and current_fast pointers meet, there is a cycle */
+        if (current == current_fast)
+            return (1);
+    }
 
-	/* If we reach the end of the list, there is no cycle */
-	return (0);
+    /* If we reach the end of the list, there is no cycle */
+    return (0);
 }
 
 
