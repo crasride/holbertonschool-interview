@@ -28,7 +28,7 @@
 
 [Project Sandpiles](./sandpiles/)
 ### Description
-It is a program used to work with two-dimensional arrays that represent piles of sand. The main objective of this algorithm is to calculate the sum of two piles of sand and apply rules that ensure the stability of the sum. Each cell in the matrix represents a point in the sand pile and contains a number that represents the amount of sand in that cell.
+
 
 [Project linked_list_palindrome](./linked_list_palindrome/)
 
@@ -45,14 +45,11 @@ Its main goal is to extract useful information from these logs, such as file siz
 It is a data structure used in programming to represent a sequence of elements, where one or more elements of the list are linked in such a way that they form a loop or cycle. This means that following links or references from one item to the next will eventually return to the same item within the list. Linked list cycles are used in algorithms and data structures for various applications, such as cycle detection in linked lists, algorithm optimization, and data representation in graph problems, among others. These loops can be useful in situations where you need to loop through a sequence of elements repeatedly or where it is important to detect loops in a data structure.
 
 [Project Palindrome integer](./palindrome_integer/)
-<details>
-<summary>Description</summary>
+
+### Description
 A palindrome is a sequence of characters, whether a word, phrase, or number, that reads the same way from left to right and from right to left.
 
 In other words, it is a symmetrical structure that does not change when reversed, like "`bear`," "`recognize`," or "`1221`."
-</details>
-
-
 
 
 ## Author
