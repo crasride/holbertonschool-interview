@@ -49,6 +49,8 @@
 [Project Palindrome integer](./palindrome_integer/)
 <details>
 <summary>Description</summary>
+<p>A palindrome is a sequence of characters, whether a word, phrase, or number, that reads the same way from left to right and from right to left. </p>
+In other words, it is a symmetrical structure that does not change when reversed, like "bear," "recognize," or "1221."
 </details>
 
 ## Author
