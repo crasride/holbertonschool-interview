@@ -27,8 +27,9 @@
 </details>
 
 [Project Sandpiles](./sandpiles/)
-### Description
 
+### Description
+It is a program used to work with two-dimensional arrays that represent piles of sand. The main objective of this algorithm is to calculate the sum of two piles of sand and apply rules that ensure the stability of the sum. Each cell in the matrix represents a point in the sand pile and contains a number that represents the amount of sand in that cell.
 
 [Project linked_list_palindrome](./linked_list_palindrome/)
 
