@@ -40,6 +40,7 @@ It is a data structure in which a linked list, which is a collection of elements
 
 ### Description
 Its main goal is to extract useful information from these logs, such as file sizes and HTTP status codes, and keep track of this information as it processes lines of standard input. The algorithm calculates the total size of the files and keeps track of the number of occurrences of specific HTTP status codes. Every time it processes 10 lines, it prints the total file size and status code counts in alphabetical order. Log parsing is useful for analyzing and summarizing large sets of logs, which can be valuable in monitoring, troubleshooting, and reporting tasks related to systems or web services.
+
 [Project Linked list cycle](./linked_list_cycle/)
 
 ### Description
