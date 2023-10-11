@@ -46,6 +46,10 @@
 <summary>Description</summary>
 </details>
 
+[Project Palindrome integer](./palindrome_integer/)
+<details>
+<summary>Description</summary>
+</details>
 
 ## Author
 
