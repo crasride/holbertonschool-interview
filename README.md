@@ -7,24 +7,23 @@
 
 
 [Project Badge Lockboxes](./lockboxes/)
-<details>
-<summary>Description</summary>
-</details>
+### Description
+The goal of this algorithm is to determine if it is possible to open all boxes within a list of interconnected boxes. Each box contains a list of keys that correspond to other boxes, and the challenge is to determine if all the boxes can be opened by following the keys provided.
 
+---
 [Project Insert in sorted linked list](./insert_in_sorted_linked_list/)
-<details>
-<summary>Description</summary>
-</details>
+### Description
+The "Insert in sorted linked list" algorithm allows the sorted insertion of a new node into a linked list, ensuring that the list remains sorted from smallest to largest based on the value contained in the nodes (n). This function is useful for maintaining ordered lists and is a fundamental part of managing data and data structures in programming.
 
+---
 [Project Heap Insert](./heap_insert/)
-<details>
-<summary>Description</summary>
-</details>
+### Description
+An insertion into a data structure known as a "binary max-heap." A maximal binary heap is a data structure in which each parent node has a value greater than or equal to the values of its child nodes. The heap_insert algorithm is used to add a new value to a maximum binary heap and maintain ownership of the heap.
 
+---
 [Project Minimum Operations](./minimum_operations/)
-<details>
-<summary>Description</summary>
-</details>
+### Description
+The "Minimum Operations" algorithm is a useful tool to efficiently calculate the minimum number of operations necessary to copy and paste text to achieve a specific length, based on the decomposition of n into prime factors.
 
 ---
 [Project Sandpiles](./sandpiles/)
