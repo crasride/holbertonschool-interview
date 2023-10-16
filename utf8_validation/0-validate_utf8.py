@@ -4,6 +4,7 @@
 Method to validate a UTF8 set of data
 """
 
+
 def validUTF8(data):
     """
     Check the 8 least significant bits (LSBs)
@@ -14,24 +15,32 @@ def validUTF8(data):
     Returns:
         True if valid UTF-8 encoding, otherwise False
     """
-    num_bytes = 0
-    for num in data:
-        if num > 255:
-            return False
-        if num_bytes == 0:
-            if (num >> 7) == 0:
-                num_bytes = 0
-            elif (num >> 5) == 6:
-                num_bytes = 1
-            elif (num >> 4) == 14:
-                num_bytes = 2
-            elif (num >> 3) == 30:
-                num_bytes = 3
+    # Initialize a variable
+    expected_following_bytes = 0
+
+    for byte in data:
+        # Check the 8 least significant bits of the byte.
+        byte = byte & 0xFF
+
+        # If no bytes are expected to follow
+        # it should be a single-byte character (0xxxxxxx)
+        if expected_following_bytes == 0:
+            if (byte >> 7) == 0:
+                continue
+            elif (byte >> 5) == 0b110:
+                expected_following_bytes = 1
+            elif (byte >> 4) == 0b1110:
+                expected_following_bytes = 2
+            elif (byte >> 3) == 0b11110:
+                expected_following_bytes = 3
             else:
                 return False
         else:
-            if (num >> 6) != 2:
+            # If a byte is expected to follow (10x)
+            # check if it starts with '10'
+            if (byte >> 6) != 0b10:
                 return False
-            num_bytes -= 1
 
-    return num_bytes == 0
+            # Decrement the count of expected following bytes.
+            expected_following_bytes -= 1
+    return expected_following_bytes == 0
