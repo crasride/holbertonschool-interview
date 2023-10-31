@@ -63,13 +63,14 @@ In other words, it is a symmetrical structure that does not change when reversed
 [Project UTF-8 Validation](./utf8_validation/)
 
 ### Description
-
+---
 
 [Project 2048 (single line)](./slide_line/)
 
 ### Description
+It aims to slide and merge a line of integers left or right. The number line is represented as a one-dimensional array.
 
-
+This algorithm implements the basic rules of the `2048 game`, where numbers slide and merge in a given direction, and the goal is to obtain larger numbers by combining adjacent elements with the same value.
 
 
 ## Author
