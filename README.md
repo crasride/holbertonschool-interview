@@ -64,6 +64,14 @@ In other words, it is a symmetrical structure that does not change when reversed
 
 ### Description
 
+
+[Project 2048 (single line)](./slide_line/)
+
+### Description
+
+
+
+
 ## Author
 
 * José Fernàndez Armas
