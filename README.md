@@ -95,6 +95,9 @@ It aims to slide and merge a line of integers left or right. The number line is 
 
 This algorithm implements the basic rules of the `2048 game`, where numbers slide and merge in a given direction, and the goal is to obtain larger numbers by combining adjacent elements with the same value.
 
+[Menger sponge](./menger/)
+
+### Description
 
 ## Author
 
