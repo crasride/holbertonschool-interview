@@ -95,9 +95,13 @@ It aims to slide and merge a line of integers left or right. The number line is 
 
 This algorithm implements the basic rules of the `2048 game`, where numbers slide and merge in a given direction, and the goal is to obtain larger numbers by combining adjacent elements with the same value.
 
-[Menger sponge](./menger/)
+[2D Menger Sponge](./menger/)
 
 ### Description
+The Menger algorithm, also known as the `"Menger Set"` or the `"Menger Sponge"`, is a three-dimensional fractal that can be considered a generalization of the Sierpinski triangle to three dimensions.
+
+However, in this description, we will focus on the `2D Menger Sponge`, which is a simplification of the three-dimensional fractal.
+
 
 ## Author
 
