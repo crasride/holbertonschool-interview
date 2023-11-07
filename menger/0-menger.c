@@ -3,14 +3,15 @@
 #include "menger.h"
 
 /**
-* detchar - Determines whether to print '#' or ' ' at a given position.
+* position_character - Determines whether to print '#' or ' ' at a given
+* position.
 * @row: Row index.
 * @col: Column index.
 * @size: Size of the current Menger sponge level.
 *
 * Return: '#' or ' '
 */
-char detchar(size_t row, size_t col, size_t size)
+char position_character(size_t row, size_t col, size_t size)
 {
 	while (size > 0)
 	{
@@ -40,7 +41,7 @@ void menger(int level)
 	for (row = 0; row < size; ++row)
 	{
 		for (col = 0; col < size; ++col)
-			putchar(detchar(row, col, size));
+			putchar(position_character(row, col, size));
 		putchar('\n');
 	}
 }

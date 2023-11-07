@@ -7,6 +7,6 @@
 
 /* Function Task 0 */
 void menger(int level);
-char detchar(size_t row, size_t col, size_t size);
+char position_character(size_t row, size_t col, size_t size);
 
 #endif /* MENGER_H */
