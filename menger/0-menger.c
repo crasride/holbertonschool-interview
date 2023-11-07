@@ -31,14 +31,15 @@ char detchar(size_t row, size_t col, size_t size)
 */
 void menger(int level)
 {
+	size_t size = pow(3, level);
+	size_t row, col;
+
 	if (level < 0)
 		return;
 
-	size_t size = pow(3, level);
-
-	for (size_t row = 0; row < size; ++row)
+	for (row = 0; row < size; ++row)
 	{
-		for (size_t col = 0; col < size; ++col)
+		for (col = 0; col < size; ++col)
 			putchar(detchar(row, col, size));
 		putchar('\n');
 	}
