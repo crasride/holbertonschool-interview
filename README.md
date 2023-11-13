@@ -102,6 +102,14 @@ The Menger algorithm, also known as the `"Menger Set"` or the `"Menger Sponge"`,
 
 However, in this description, we will focus on the `2D Menger Sponge`, which is a simplification of the three-dimensional fractal.
 
+[N Queens](./nqueens/)
+
+### Description
+The algorithm solves the N queens problem, which consists of placing N queens on an N×N chessboard such that no queen threatens another. The solution uses the `backtracking` technique, which is a recursive strategy to explore all possible board configurations.
+
+In summary, the algorithm finds and displays all possible solutions to the N queens problem, meeting the requirements and constraints specified in the instructions.
+
+
 
 ## Author
 
