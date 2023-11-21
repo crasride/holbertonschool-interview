@@ -30,12 +30,13 @@ avl_t *add_new_node(int value, avl_t *parent)
 avl_t *binary_tree_from_array(avl_t *parent, int *array, int left_idx,
 								int right_idx)
 {
+	int middle_idx;
 	/* if left index is greater than right index, returns NULL */
 	if (left_idx > right_idx)
 		return (NULL);
 
 	/* Calculate the index of the middle element */
-	int middle_idx = (left_idx + right_idx) / 2;
+	middle_idx = (left_idx + right_idx) / 2;
 	/* Create a new node with the middle element value */
 	avl_t *new_node = add_new_node(array[middle_idx], parent);
 
