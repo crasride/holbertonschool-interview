@@ -31,6 +31,7 @@ avl_t *binary_tree_from_array(avl_t *parent, int *array, int left_idx,
 								int right_idx)
 {
 	int middle_idx;
+	avl_t *new_node = NULL;
 	/* if left index is greater than right index, returns NULL */
 	if (left_idx > right_idx)
 		return (NULL);
@@ -38,7 +39,7 @@ avl_t *binary_tree_from_array(avl_t *parent, int *array, int left_idx,
 	/* Calculate the index of the middle element */
 	middle_idx = (left_idx + right_idx) / 2;
 	/* Create a new node with the middle element value */
-	avl_t *new_node = add_new_node(array[middle_idx], parent);
+	new_node = add_new_node(array[middle_idx], parent);
 
 	/* Check for malloc failure */
 	if (!new_node)
