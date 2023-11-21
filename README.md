@@ -109,6 +109,10 @@ The algorithm solves the N queens problem, which consists of placing N queens on
 
 In summary, the algorithm finds and displays all possible solutions to the N queens problem, meeting the requirements and constraints specified in the instructions.
 
+[Array to AVL](./sorted_array_to_avl/)
+
+### Description
+This algorithm takes advantage of the property of ordered arrays to efficiently construct a balanced `AVL tree`, dividing the `array` in half at each step and constructing nodes from the middle elements.
 
 
 ## Author
