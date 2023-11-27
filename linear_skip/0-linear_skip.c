@@ -20,8 +20,12 @@ skiplist_t *express_lane_search(skiplist_t *node, int value)
 		current_node = express_node;
 		express_node = express_node->express;
 
-		if (express_node->n == value)
-			return (express_node);
+		if (express_node->n >= value)
+		{
+			printf("Value found between indexes [%lu] and [%lu]\n",
+				current_node->index, express_node->index);
+			return (current_node);
+		}
 	}
 
 	if (express_node->n >= value)
