@@ -1,4 +1,4 @@
-<h1 align="center">Linear search in skip lis</h1>
+<h1 align="center">Linear search in skip list</h1>
 
 
 ## Requirements
