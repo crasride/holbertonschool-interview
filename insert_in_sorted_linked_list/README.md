@@ -1,4 +1,4 @@
-# Insert in sorted linked list
+<h1 align="center">Insert in sorted linked list</h1>
 
 ## Requirements
 
