@@ -60,7 +60,7 @@ skiplist_t *linear_skip(skiplist_t *head, int value);
 ## Tasks
 
 ### [0. Linear search in a skip list](./0-linear_skip.c)
-Looking for a specific value in a singly linked list always leads to browse every element of the list. A common way to optimize the time complexity of a search in a singly linked list is to modify the list itself by adding an “express lane” to browse it. A linked list with an express lane is called a [skip list](https://intranet.hbtn.io/rltoken/lGL3SR3eFS6dNV915Vu_Yg.
+Looking for a specific value in a singly linked list always leads to browse every element of the list. A common way to optimize the time complexity of a search in a singly linked list is to modify the list itself by adding an “express lane” to browse it. A linked list with an express lane is called a [skip list](https://en.wikipedia.org/wiki/Skip_list).
 
 Write a function that searches for a value in a sorted skip list of integers.
 * Prototype : `skiplist_t *linear_skip(skiplist_t *list, int value);`
