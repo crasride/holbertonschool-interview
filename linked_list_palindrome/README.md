@@ -1,4 +1,4 @@
-# Linked list palindrome
+<h1 align="center">Linked list palindrome</h1>
 
 ## Requirements
 
