@@ -1,4 +1,5 @@
-# Sandpiles
+
+<h1 align="center">Sandpiles</h1>
 
 # Resources
 
