@@ -114,6 +114,10 @@ In summary, the algorithm finds and displays all possible solutions to the N que
 ### Description
 This algorithm takes advantage of the property of ordered arrays to efficiently construct a balanced `AVL tree`, dividing the `array` in half at each step and constructing nodes from the middle elements.
 
+[Linear search in skip list](./linear_skip/)
+
+### Description
+The algorithm implements searching for a value in an ordered skip list of integers. A skip list is a data structure that combines a linked list with express rails that speed up searching.
 
 ## Author
 
