@@ -1,4 +1,4 @@
-# Linked list cycle
+<h1 align="center">Linked list cycle</h1>
 
 ## Requirements
 
