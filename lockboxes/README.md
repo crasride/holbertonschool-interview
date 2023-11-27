@@ -1,4 +1,4 @@
-# Lockboxes
+<h1 align="center">Lockboxes</h1>
 
 ## Requirements
 * Allowed editors: `vi`, `vim`, `emacs`
