@@ -1,4 +1,4 @@
-# 2048 (single line)
+<h1 align="center">2048 (single line)</h1>
 
 ## Requirements
 
