@@ -1,4 +1,4 @@
-# Heap Insert
+<h1 align="center">Heap Insert</h1>
 
 ## Requirements
 
@@ -48,6 +48,7 @@ To match the examples in the tasks, you are given [this function](https://github
 ### Print function
 
 This function is used only for visualisation purpose. You don’t have to push it to your repo. It may not be used during the correction
+
 ---
 
 ### [0. New node](./0-binary_tree_node.c)
