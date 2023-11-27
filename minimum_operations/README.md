@@ -1,4 +1,4 @@
-# Minimum Operations
+<h1 align="center">Minimum Operations</h1>
 
 ## Requirements
 
