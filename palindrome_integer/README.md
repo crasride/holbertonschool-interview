@@ -1,4 +1,4 @@
-# Palindrome integer
+<h1 align="center">Palindrome integer</h1>
 
 ## Requirements
 
