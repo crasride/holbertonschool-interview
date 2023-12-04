@@ -42,7 +42,7 @@ function characterLoop (characters, index) {
   });
 }
 
-// Make a request to fetch film details
+/* Make a request to fetch film details */
 request(url, (error, response, body) => {
   if (error) {
     console.error('Error:', error);
