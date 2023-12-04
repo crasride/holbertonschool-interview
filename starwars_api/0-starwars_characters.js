@@ -54,10 +54,10 @@ request(url, (error, response, body) => {
     process.exit(1);
   }
 
-  // Parse the response and get the list of characters
+  /* Parse the response and get the list of characters */
   const film = JSON.parse(body);
   const characters = film.characters;
 
-  // Start processing characters sequentially
+  /* Start processing characters sequentially */
   characterLoop(characters, 0);
 });
