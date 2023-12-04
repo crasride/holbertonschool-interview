@@ -12,8 +12,8 @@ const movieId = process.argv[2];
 const url = `https://swapi-api.hbtn.io/api/films/${movieId}/`;
 
 /* Recursive function to process characters sequentially */
-function characterLoop(characters, index) {
-/* If all characters have been processed, exit the function */
+function characterLoop (characters, index) {
+  /* If all characters have been processed, exit the function */
   if (index === characters.length) {
     return;
   }
@@ -37,7 +37,7 @@ function characterLoop(characters, index) {
     const character = JSON.parse(charBody);
     console.log(character.name);
 
-   /* Process the next character in the sequence recursively */
+    /* Process the next character in the sequence recursively */
     characterLoop(characters, index + 1);
   });
 }
@@ -61,5 +61,3 @@ request(url, (error, response, body) => {
   // Start processing characters sequentially
   characterLoop(characters, 0);
 });
-
-
