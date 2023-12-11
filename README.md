@@ -124,6 +124,11 @@ The algorithm implements searching for a value in an ordered skip list of intege
 ### Description
 In summary, this algorithm allows you to obtain and display the names of characters from a specific `Star Wars` movie, using the `SWAPI API` and following a `recursive` approach to process the characters `sequentially`.
 
+[Rain](./rain/)
+
+### Description
+The algorithm efficiently handles the task of computing the trapped water by precomputing the left and right maximum heights for each position, reducing redundant calculations.
+
 
 ## Author
 
