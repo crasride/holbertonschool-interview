@@ -1,10 +1,8 @@
-<h1 align="center">Holberton School - Preparation - Algorithms</h1>
-
 <p align="center">
-	<img width="75" height="75" src="./images/c.webp" alt="C Logo">
-	<img width="75" height="75" src="./images/python.png" alt="Python Logo">
+	<img src="./images/algo.png" alt="C Logo">
 </p>
 
+<h1 align="center">Holberton School - Preparation - Algorithms</h1>
 
 [Project Badge Lockboxes](./lockboxes/)
 ### Description
