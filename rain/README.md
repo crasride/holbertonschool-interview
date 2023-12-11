@@ -43,14 +43,14 @@ jesse@ubuntu:~/0x10$
 Visual representation of the walls `[0, 1, 0, 2, 0, 3, 0, 4]`
 
 <p align="left">
-	<img width="400" height="175" src="./images/rain1.png" alt="C Logo">
+	<img width="400" height="175" src="../images/rain1.png" alt="rain1">
 </p>
 
 
 Visual representation of the walls `[2, 0, 0, 4, 0, 0, 1, 0]`
 
 <p align="left">
-	<img width="400" height="175" src="./images/rain2.png" alt="C Logo">
+	<img width="400" height="175" src="../images/rain2.png" alt="rain2">
 </p>
 
 
