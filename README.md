@@ -127,6 +127,10 @@ In summary, this algorithm allows you to obtain and display the names of charact
 ### Description
 The algorithm efficiently handles the task of computing the trapped water by precomputing the left and right maximum heights for each position, reducing redundant calculations.
 
+[Heap Sort](./heap_sort/)
+
+### Description
+Heap Sort is a comparison-based sorting algorithm that uses a binary heap data structure to build a `max heap` or `min heap`. In the case of Heap Sort, we typically use a `max heap`.
 
 ## Author
 
