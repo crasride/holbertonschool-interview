@@ -13,16 +13,17 @@ void move_node(int *array, size_t size, size_t root, size_t total_size)
 	size_t left = 2 * root + 1;
 	size_t right = 2 * root + 2;
 
+	/* If left child is larger than root */
 	if (left < size && array[left] > array[largest])
 		largest = left;
-
+	/* If right child is larger than largest so far */
 	if (right < size && array[right] > array[largest])
 		largest = right;
-
+	/* If largest is not root */
 	if (largest != root)
 	{
 		int temp = array[root];
-
+		/* Swap */
 		array[root] = array[largest];
 		array[largest] = temp;
 		print_array(array, total_size);
@@ -38,17 +39,17 @@ void move_node(int *array, size_t size, size_t root, size_t total_size)
 void heap_sort(int *array, size_t size)
 {
 	int i = 0;
-
+	/* Build heap */
 	if (!array || size < 2)
 		return;
-
+	/* Build heap */
 	for (i = size / 2 - 1; i >= 0; i--)
 		move_node(array, size, i, size);
-
+	/* Extract elements from heap */
 	for (i = size - 1; i > 0; i--)
 	{
 		int temp = array[0];
-
+		/* Move current root to end */
 		array[0] = array[i];
 		array[i] = temp;
 		print_array(array, size);
