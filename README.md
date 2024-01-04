@@ -132,6 +132,11 @@ The algorithm efficiently handles the task of computing the trapped water by pre
 ### Description
 Heap Sort is a comparison-based sorting algorithm that uses a binary heap data structure to build a `max heap` or `min heap`. In the case of Heap Sort, we typically use a `max heap`.
 
+[Advanced Binary Search](./advanced_binary_search/)
+
+### Description
+The `advanced binary search` algorithm is useful for finding the first occurrence of a specific value in a sorted array, especially when there may be duplicates of the value in the array.
+
 ## Author
 
 * José Fernàndez Armas
