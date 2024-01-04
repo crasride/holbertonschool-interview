@@ -1,52 +1,55 @@
-#include <stdio.h>
-#include <stdlib.h>
 #include "search_algos.h"
 
 /**
-* advanced_binary - Searches for a value in a sorted array of integers.
-* @array: Pointer to the first element of the array to search in.
-* @size: Number of elements in array.
-* @value: The value to search for.
+* advanced_binary_recursive - recursive binary search algorithm with print
+* @a: array being searched
+* @target: target to find
+* @l: left boundary index
+* @r: right boundary index
 *
-* Return: The index where value is located, or -1 if not present.
+* Return: index where target found or -1 if target not found
+*/
+int advanced_binary_recursive(int *a, int target, int l, int r)
+{
+	int i;
+
+	if (l == r)
+	{
+		if (a[l] != target)
+		{
+			printf("Searching in array: %d\n", a[l]);
+			return (-1);
+		}
+		return (l);
+	}
+
+	printf("Searching in array: ");
+	for (i = l; i <= r; ++i)
+		printf("%d%s", a[i], i < r ? ", " : "");
+	printf("\n");
+
+	i = (l + r) / 2;
+	if (a[i] < target)
+		l = i + 1;
+	else
+		r = i;
+
+	return (advanced_binary_recursive(a, target, l, r));
+}
+
+/**
+* advanced_binary - find leftmost value in array using binary search
+* @array: pointer to array to search
+* @size: size of array
+* @value: value to search for
+*
+* Return: index where value is located or -1 if array is NULL, size is 0,
+* or value not found
 */
 int advanced_binary(int *array, size_t size, int value)
 {
-	size_t i;
-	int mid, result;
-
-	if (array == NULL || size == 0)
+	if (!array || !size)
 		return (-1);
 
-	printf("Searching in array: ");
-	for (i = 0; i < size; i++)
-	{
-		printf("%d", array[i]);
-		if (i < size - 1)
-			printf(", ");
-	}
-	printf("\n");
-
-	mid = (size - 1) / 2;
-	if (array[mid] == value)
-	{
-		if (mid == 0 || array[mid - 1] != value)
-			return (mid);
-
-		return (advanced_binary(array, mid + 1, value));
-	}
-
-	if (array[mid] < value)
-	{
-		result = advanced_binary(array + mid + 1, size - mid - 1, value);
-		if (result == -1)
-			return (-1);
-		return (mid + 1 + (result));
-	}
-
-	return (advanced_binary(array, mid, value));
+	return (advanced_binary_recursive(array, value, 0, size - 1));
 }
-
-
-
-
