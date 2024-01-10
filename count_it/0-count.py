@@ -1,60 +1,61 @@
 #!/usr/bin/python3
-"""
-Recursive function to query Reddit API and count occurrences of keywords
-"""
+"""0-count module"""
 
 import requests
+import collections
 
 
-def count_words(subreddit, word_list, after=None, count_dict=None):
+def count_words(subreddit, word_list):
     """
-    Queries the Reddit API recursively, parses titles, and prints sorted
-    count of keywords
+    Finds occurrences of specified keywords in a given subreddit.
 
+    Prints keyword along with their occurrences in descending order. Keywords
+    with no matches are skipped.
 
-    :param subreddit: The subreddit to search
-    :param word_list: List of keywords to count
-    :param after: The parameter used for pagination
-    :param count_dict: Dictionary to store word counts
+    :param subreddit: string containing subreddit to search
+    :param word_list: list of keywords to search for
+
+    :return: OrderedDict with keys as keywords and occurrences as values or
+             None on request failure
     """
-    base_url = "https://www.reddit.com/r/{}/hot.json".format(subreddit)
-    headers = {'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.3'}
-    params = {'limit': 100, 'after': after}
-    response = requests.get(base_url, headers=headers, params=params,
-                            allow_redirects=False)
+    def fill_list(after=None, hot_list=[]):
+        """
+        Recursively creates list of words in hot titles of specified subreddit
 
-    if response.status_code != 200:
-        return
+        :param after: pagination for the next entry
+        :param hot_list: list to populate
 
-    data = response.json().get('data', {})
-    children = data.get('children', [])
+        :return: populated list or None on failure
+        """
+        req = requests.get("https://www.reddit.com/r/{}/hot.json?after={}".
+                           format(subreddit, after),
+                           headers={"User-agent": "agent"},
+                           allow_redirects=False)
+        if req.status_code != 200:
+            return None
+        after = req.json().get("data").get("after")
+        if after is None:
+            return hot_list
+        for i in req.json().get("data").get("children"):
+            for word in i.get("data").get("title").split():
+                hot_list.append(word.lower())
+        return fill_list(after, hot_list)
 
-    if not children:
-        return
-
-    if count_dict is None:
-        count_dict = {}
-
-    for post in children:
-        title = post['data']['title'].lower()
-        for word in word_list:
-            word = word.lower()
-            count_dict[word] = count_dict.get(word, 0) + title.count(word)
-
-    next_page = data.get('after')
-    if next_page:
-        count_words(subreddit, word_list, next_page, count_dict)
-    else:
-        print_results(count_dict)
-
-
-def print_results(count_dict):
-    """
-    Prints the results in the specified format
-
-    :param count_dict: Dictionary containing word counts
-    """
-    sorted_results = sorted(count_dict.items(), key=lambda x: (-x[1], x[0]))
-
-    for word, count in sorted_results:
-        print("{}: {}".format(word, count))
+    if subreddit is None or subreddit == "" or word_list is None:
+        return None
+    hot_list = fill_list()
+    if hot_list is None:
+        return None
+    all_cnt = collections.Counter(hot_list)
+    filtered_cnt = {}
+    for word in word_list:
+        word_l = word.lower()
+        if all_cnt[word_l] > 0:
+            if word in filtered_cnt:
+                filtered_cnt[word] += filtered_cnt[word]
+            else:
+                filtered_cnt[word] = all_cnt[word_l]
+    for k, v in sorted(filtered_cnt.items(),
+                       key=lambda item: item[1], reverse=True):
+        print("{}: {}".format(k, v))
+    return filtered_cnt
