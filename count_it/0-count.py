@@ -16,7 +16,7 @@ def count_words(subreddit, word_list):
     :param word_list: list of keywords to search for
 
     :return: OrderedDict with keys as keywords and occurrences as values or
-             None on request failure
+            None on request failure
     """
 
     def fill_list(after=None, hot_list=[]):
@@ -29,9 +29,9 @@ def count_words(subreddit, word_list):
         :return: populated list or None on failure
         """
         req = requests.get("https://www.reddit.com/r/{}/hot.json?after={}".
-                           format(subreddit, after),
-                           headers={"User-agent": "agent"},
-                           allow_redirects=False)
+                        format(subreddit, after),
+                        headers={"User-agent": "agent"},
+                        allow_redirects=False)
         if req.status_code != 200:
             return None
         after = req.json().get("data").get("after")
@@ -57,6 +57,6 @@ def count_words(subreddit, word_list):
             else:
                 filtered_cnt[word] = all_cnt[word_l]
     for k, v in sorted(filtered_cnt.items(),
-                       key=lambda item: item[1], reverse=True):
+                    key=lambda item: item[1], reverse=True):
         print("{}: {}".format(k, v))
     return filtered_cnt
