@@ -1,67 +1,62 @@
 #!/usr/bin/python3
-"""
-Recursive function that queries the Reddit API, parses the title of all hot
-articles, and prints a sorted count of given keywords.
-"""
-
+'''Get ALL hot posts'''
 import requests
 
+BASE_URL = 'http://reddit.com/r/{}/hot.json'
 
-def count_words(subreddit, word_list, after=None, count_dict=None):
-    """
-    Count the occurrences of given keywords in the titles of hot articles.
-    Print the results in descending order by count and alphabetically.
 
-    subreddit: a string representing the subreddit to search
-    word_list: a list of keywords to count
-    after: a string representing the last post ID to start the search
-    count_dict: a dictionary to store the count of each keyword
-    """
+def count_words(subreddit, word_list):
+    '''Get ALL hot posts'''
+    headers = {'User-agent': 'Unix:0-subs:v1'}
+    params = {'limit': 100}
 
-    # Base case: stop recursion if word_list is empty
-    if not word_list:
-        return
+    hot_list = fetch_all_hot_posts(subreddit, headers, params)
+    count = count_occurrences(word_list, hot_list)
+    print_results(count)
 
-    # Initialize count_dict if not provided
-    if count_dict is None:
-        count_dict = {}
 
-    # API endpoint for querying hot articles in the subreddit
-    url = f'https://www.reddit.com/r/{subreddit}/hot.json'
+def fetch_all_hot_posts(subreddit, headers, params, after=None, hot_list=[]):
+    '''Fetch ALL hot posts recursively'''
+    if after == "STOP":
+        return hot_list
 
-    # Headers to mimic a web browser and avoid API access issues
-    headers = {"User-agent": "agent"}
+    if isinstance(after, str) and after != "STOP":
+        params['after'] = after
 
-    # Parameters for the API request
-    params = {'limit': 100, 'after': after}
+    response = requests.get(BASE_URL.format(subreddit),
+                            headers=headers, params=params)
 
-    # Make the API request
-    response = requests.get(url, headers=headers, params=params,
-                            allow_redirects=False)
-
-    # Check if the subreddit is valid (no redirect)
     if response.status_code != 200:
-        return
+        return hot_list
 
-    # Get the JSON data from the response
-    data = response.json()
+    data = response.json().get('data', {})
+    after = data.get('after', 'STOP')
+    if not after:
+        after = "STOP"
 
-    # Get the list of posts from the data
-    posts = data.get('data', {}).get('children', [])
+    hot_list += [
+        post.get('data', {}).get('title')
+        for post in data.get('children', [])
+    ]
 
-    # Update count_dict based on the titles of the posts
-    for post in posts:
-        title = post.get('data', {}).get('title', '').lower()
+    return fetch_all_hot_posts(subreddit, headers, params, after, hot_list)
+
+
+def count_occurrences(word_list, hot_list):
+    '''Count occurrences of keywords in hot posts'''
+    count = {word: 0 for word in word_list}
+
+    for title in hot_list:
         for word in word_list:
-            if word.lower() in title:
-                count_dict[word] = count_dict.get(word, 0) + title.count(word.lower())
+            for title_word in title.lower().split():
+                if title_word == word.lower():
+                    count[word] += 1
 
-    # Check if there are more posts to fetch
-    after = data.get('data', {}).get('after')
-    if after:
-        count_words(subreddit, word_list, after, count_dict)
-    else:
-        # Print the results in descending order by count and alphabetically
-        sorted_counts = sorted(count_dict.items(), key=lambda x: (-x[1], x[0]))
-        for word, count in sorted_counts:
-            print(f'{word}: {count}')
+    return {k: v for k, v in count.items() if v > 0}
+
+
+def print_results(count):
+    '''Print request results'''
+    words = list(count.keys())
+    for word in sorted(words, reverse=True, key=lambda k: count[k]):
+        print("{}: {}".format(word, count[word]))
