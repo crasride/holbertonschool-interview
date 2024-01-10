@@ -137,6 +137,11 @@ Heap Sort is a comparison-based sorting algorithm that uses a binary heap data s
 ### Description
 The `advanced binary search` algorithm is useful for finding the first occurrence of a specific value in a sorted array, especially when there may be duplicates of the value in the array.
 
+[Count it!](./count_it/)
+### Description
+It is a program that makes requests to the Reddit API to count the frequency of keywords in the titles of the most popular posts in a specific subreddit.
+
+
 ## Author
 
 * José Fernàndez Armas
