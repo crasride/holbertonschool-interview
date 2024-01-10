@@ -29,9 +29,9 @@ def count_words(subreddit, word_list):
         :return: populated list or None on failure
         """
         req = requests.get("https://www.reddit.com/r/{}/hot.json?after={}".
-                        format(subreddit, after),
-                        headers={"User-agent": "agent"},
-                        allow_redirects=False)
+                           format(subreddit, after),
+                           headers={"User-agent": "agent"},
+                           allow_redirects=False)
         if req.status_code != 200:
             return None
         after = req.json().get("data").get("after")
