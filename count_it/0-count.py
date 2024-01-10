@@ -18,6 +18,7 @@ def count_words(subreddit, word_list):
     :return: OrderedDict with keys as keywords and occurrences as values or
              None on request failure
     """
+
     def fill_list(after=None, hot_list=[]):
         """
         Recursively creates list of words in hot titles of specified subreddit
