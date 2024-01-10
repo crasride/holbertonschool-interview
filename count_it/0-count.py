@@ -44,19 +44,26 @@ def fetch_all_hot_posts(subreddit, headers, params, after=None, hot_list=[]):
 
 def count_occurrences(word_list, hot_list):
     '''Count occurrences of keywords in hot posts'''
+
+    # Dictionary to count the frequency of each keyword
     count = {word: 0 for word in word_list}
+
+    # Iterate over each post title and count the occurrences of each keyword
 
     for title in hot_list:
         for word in word_list:
             for title_word in title.lower().split():
                 if title_word == word.lower():
                     count[word] += 1
-
+    # Filter keywords with count greater than zero
     return {k: v for k, v in count.items() if v > 0}
 
 
 def print_results(count):
-    '''Print request results'''
+    '''
+    Print the results sorted in descending order by frequency and
+    alphabetically in case of a tie
+    '''
     words = list(count.keys())
     for word in sorted(words, reverse=True, key=lambda k: count[k]):
         print("{}: {}".format(word, count[word]))
