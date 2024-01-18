@@ -139,6 +139,11 @@ The `advanced binary search` algorithm is useful for finding the first occurrenc
 ### Description
 It is a program that makes requests to the Reddit API to count the frequency of keywords in the titles of the most popular posts in a specific subreddit.
 
+## [Heap Extract](./heap_extract/)
+### Description
+This code implements the heap_extract function to extract the root node of a `Max Binary Heap` and restore the max heap property.
+
+
 
 ## Author
 
