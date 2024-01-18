@@ -15,25 +15,24 @@ int heap_extract(heap_t **root)
 	heap_t *last_node = find_last_node(*root);
 
 	if (last_node != *root)
-		(*root)->n = last_node->n;
-	else
-		free(last_node);
-
-	if (last_node->parent)
 	{
+		(*root)->n = last_node->n;
 		if (last_node->parent->left == last_node)
 			last_node->parent->left = NULL;
 		else
 			last_node->parent->right = NULL;
-	}
 
-	if (last_node != *root)
 		free(last_node);
-	heapify_down(*root);
+		heapify_down(*root);
+	}
+	else
+	{
+		free(*root);
+		*root = NULL;
+	}
 
 	return (extracted_value);
 }
-
 
 /**
 * find_last_node - Finds the last level-order node in the heap.
@@ -94,7 +93,6 @@ void heapify_down(heap_t *root)
 
 	if (largest != root)
 	{
-
 		int temp = root->n;
 
 		root->n = largest->n;
