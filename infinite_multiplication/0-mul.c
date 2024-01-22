@@ -71,3 +71,20 @@ void multiply(char *num1, char *num2)
 	_putchar('\n');
 	free(res);
 }
+
+
+/**
+* main - Entry point
+* @argc: The number of command-line arguments
+* @argv: The command-line arguments
+* Return: 0 on success, 98 on failure
+*/
+int main(int argc, char *argv[])
+{
+	if (argc != 3 || !is_digit(argv[1]) || !is_digit(argv[2]))
+		error_exit();
+
+	multiply(argv[1], argv[2]);
+
+	return (0);
+}
