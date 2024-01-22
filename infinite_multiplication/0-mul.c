@@ -26,6 +26,19 @@ int is_digit(char *str)
 }
 
 /**
+ * initialize_array - Initializes an array with a specified value
+ * @arr: The array to initialize
+ * @size: The size of the array
+ * @value: The value to set in each element
+ */
+void initialize_array(int *arr, size_t size, int value)
+{
+	size_t i;
+	for (i = 0; i < size; i++)
+		arr[i] = value;
+}
+
+/**
  * multiply - Multiplies two numbers and prints the result
  * @num1: The first number as a string
  * @num2: The second number as a string
@@ -46,7 +59,7 @@ void multiply(char *num1, char *num2)
 	if (!res)
 		error_exit();
 
-	initialize_array(res, len1 + len2 + 1);
+	initialize_array(res, len1 + len2 + 1, 0);
 
 	for (i = len1 - 1; i >= 0; i--)
 	{
@@ -94,3 +107,4 @@ int main(int argc, char *argv[])
 
 	return (0);
 }
+
