@@ -41,11 +41,11 @@ void multiply(char *num1, char *num2)
 	len1 = strlen(num1);
 	len2 = strlen(num2);
 
-	res = malloc(sizeof(int) * (len1 + len2));
+	res = malloc(sizeof(int) * (len1 + len2 + 1));
 	if (!res)
 		error_exit();
 
-	for (i = 0; i < len1 + len2; i++)
+	for (i = 0; i < len1 + len2 + 1; i++)
 		res[i] = 0;
 
 	for (i = len1 - 1; i >= 0; i--)
@@ -60,12 +60,8 @@ void multiply(char *num1, char *num2)
 		res[i + j + 1] = carry;
 	}
 
-	if (res[0] == 0)
-		i = 1;
-	else
-		i = 0;
-
-	for (; i < len1 + len2; i++)
+	_putchar(res[0] + '0');
+	for (i = 1; i < len1 + len2 + 1; i++)
 		_putchar(res[i] + '0');
 
 	_putchar('\n');
