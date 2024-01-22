@@ -2,10 +2,10 @@
 #include <stdlib.h>
 
 /**
-* print_product - print product array
-* @product: array to print
-* @len: len of array
-*/
+ * print_product - print product array
+ * @product: array to print
+ * @len: len of array
+ */
 void print_product(int *product, size_t len)
 {
 	size_t i;
@@ -22,19 +22,19 @@ void print_product(int *product, size_t len)
 }
 
 /**
-* multiply - multiply two numbers represented as strings
-* @product: array to store product
-* @n1: first string
-* @n2: second string
-* @len1: length of first string
-* @len2: length of second string
-*/
+ * multiply - multiply two numbers represented as strings
+ * @product: array to store product
+ * @n1: first string
+ * @n2: second string
+ * @len1: length of first string
+ * @len2: length of second string
+ */
 void multiply(int *product, char *n1, char *n2, size_t len1, size_t len2)
 {
 	int i, j, carry;
 
-	for (i = len1 - 1; i > -1; --i)
-		for (j = len2 - 1; j > -1; --j)
+	for (i = len1 - 1; i >= 0; --i)
+		for (j = len2 - 1; j >= 0; --j)
 		{
 			carry = (n1[i] - '0') * (n2[j] - '0') + product[i + j + 1];
 			product[i + j + 1] = carry % 10;
@@ -43,8 +43,8 @@ void multiply(int *product, char *n1, char *n2, size_t len1, size_t len2)
 }
 
 /**
-* error_exit - Prints "Error" and exits with status 98
-*/
+ * error_exit - Prints "Error" and exits with status 98
+ */
 void error_exit(void)
 {
 	write(2, "Error\n", 6);
@@ -52,12 +52,12 @@ void error_exit(void)
 }
 
 /**
-* main - entry point for infinite multiplication
-* @argc: number of command-line arguments
-* @argv: pointer to an array of character strings containing the arguments
-*
-* Return: 0 on success or 1 on error
-*/
+ * main - entry point for infinite multiplication
+ * @argc: number of command-line arguments
+ * @argv: pointer to an array of character strings containing the arguments
+ *
+ * Return: 0 on success or 1 on error
+ */
 int main(int argc, char *argv[])
 {
 	int *product;
@@ -86,5 +86,3 @@ int main(int argc, char *argv[])
 	free(product);
 	return (0);
 }
-
-
