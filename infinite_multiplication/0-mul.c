@@ -1,8 +1,8 @@
 #include "holberton.h"
 
 /**
-* error_exit - Prints "Error" and exits with status 98
-*/
+ * error_exit - Prints "Error" and exits with status 98
+ */
 void error_exit(void)
 {
 	write(2, "Error\n", 6);
@@ -10,10 +10,10 @@ void error_exit(void)
 }
 
 /**
-* is_digit - Checks if a string is composed of digits
-* @str: The string to check
-* Return: 1 if composed of digits, 0 otherwise
-*/
+ * is_digit - Checks if a string is composed of digits
+ * @str: The string to check
+ * Return: 1 if composed of digits, 0 otherwise
+ */
 int is_digit(char *str)
 {
 	while (*str)
@@ -26,10 +26,10 @@ int is_digit(char *str)
 }
 
 /**
-* multiply - Multiplies two numbers and prints the result
-* @num1: The first number as a string
-* @num2: The second number as a string
-*/
+ * multiply - Multiplies two numbers and prints the result
+ * @num1: The first number as a string
+ * @num2: The second number as a string
+ */
 void multiply(char *num1, char *num2)
 {
 	int len1 = 0, len2 = 0, i, j, carry = 0, result;
@@ -38,8 +38,8 @@ void multiply(char *num1, char *num2)
 	if (!is_digit(num1) || !is_digit(num2))
 		error_exit();
 
-	len1 = strlen(num1);
-	len2 = strlen(num2);
+	len1 = _strlen(num1);
+	len2 = _strlen(num2);
 
 	res = malloc(sizeof(int) * (len1 + len2));
 	if (!res)
@@ -59,29 +59,50 @@ void multiply(char *num1, char *num2)
 		}
 		res[i + j + 1] = carry;
 	}
-	for (i = 0; i < len1 + len2; i++)
-		res[i] += '0';
 
-	if (res[0] == '0')
+	if (res[0] == 0)
 		i = 1;
 	else
 		i = 0;
 
 	for (; i < len1 + len2; i++)
-		_putchar(res[i]);
+		_putchar(res[i] + '0');
 
 	_putchar('\n');
 	free(res);
 }
 
+/**
+ * _strlen - Finds the length of a string
+ * @s: string to find the length
+ * Return: the length of the string
+ */
+int _strlen(char *s)
+{
+	int i = 0;
 
+	while (s[i] != '\0')
+		i++;
+
+	return (i);
+}
 
 /**
-* main - Entry point
-* @argc: The number of command-line arguments
-* @argv: The command-line arguments
-* Return: 0 on success, 98 on failure
-*/
+ * _putchar - Writes a character to the standard output
+ * @c: The character to write
+ * Return: 1 on success, -1 on error
+ */
+int _putchar(char c)
+{
+	return (write(1, &c, 1));
+}
+
+/**
+ * main - Entry point
+ * @argc: The number of command-line arguments
+ * @argv: The command-line arguments
+ * Return: 0 on success, 98 on failure
+ */
 int main(int argc, char *argv[])
 {
 	if (argc != 3)
