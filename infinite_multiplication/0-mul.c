@@ -38,8 +38,8 @@ void multiply(char *num1, char *num2)
 	if (!is_digit(num1) || !is_digit(num2))
 		error_exit();
 
-	len1 = _strlen(num1);
-	len2 = _strlen(num2);
+	len1 = strlen(num1);
+	len2 = strlen(num2);
 
 	res = malloc(sizeof(int) * (len1 + len2));
 	if (!res)
@@ -70,21 +70,6 @@ void multiply(char *num1, char *num2)
 
 	_putchar('\n');
 	free(res);
-}
-
-/**
- * _strlen - Finds the length of a string
- * @s: string to find the length
- * Return: the length of the string
- */
-int _strlen(char *s)
-{
-	int i = 0;
-
-	while (s[i] != '\0')
-		i++;
-
-	return (i);
 }
 
 /**
