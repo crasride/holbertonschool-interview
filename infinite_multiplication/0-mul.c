@@ -34,6 +34,7 @@ void multiply(char *num1, char *num2)
 {
 	int len1 = 0, len2 = 0, i, j, carry = 0, result;
 	int *res;
+	int start_index = 0;
 
 	if (!is_digit(num1) || !is_digit(num2))
 		error_exit();
@@ -60,9 +61,20 @@ void multiply(char *num1, char *num2)
 		res[i + j + 1] = carry;
 	}
 
-	_putchar(res[0] + '0');
-	for (i = 1; i < len1 + len2 + 1; i++)
-		_putchar(res[i] + '0');
+	while (res[start_index] == 0 && start_index < len1 + len2)
+	{
+		start_index++;
+	}
+
+	if (start_index == len1 + len2)
+	{
+		_putchar('0');
+	}
+	else
+	{
+		for (i = start_index; i < len1 + len2 + 1; i++)
+			_putchar(res[i] + '0');
+	}
 
 	_putchar('\n');
 	free(res);
