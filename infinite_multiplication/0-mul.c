@@ -14,16 +14,11 @@ int main(int argc, char **argv)
 
 	if (argc != 3 || !verify_arg(argv[1]) || !verify_arg(argv[2]))
 	{
-		_putchar('E');
-		_putchar('r');
-		_putchar('r');
-		_putchar('o');
-		_putchar('r');
-		_putchar('\n');
+		_puts("Error\n");
 		exit(98);
 	}
-	len1 = strlen(argv[1]);
-	len2 = strlen(argv[2]);
+	len1 = _strlen(argv[1]);
+	len2 = _strlen(argv[2]);
 	len_result = len1 + len2;
 
 	result = malloc(len_result * sizeof(int));
@@ -31,12 +26,46 @@ int main(int argc, char **argv)
 	if (!result)
 		return (EXIT_FAILURE);
 
-	initialize(result, len_result);
-	multiply(argv[1], argv[2], result, len1, len2);
+	initialize_array(result, len_result);
+	multiply_numbers(argv[1], argv[2], result, len1, len2);
 	print_result(result, len_result);
 
 	free(result);
 	return (EXIT_SUCCESS);
+}
+
+/**
+ * _puts - prints a string
+ *
+ * @s: string to print
+ *
+ * Return: the length of the string
+ */
+int _puts(char *s)
+{
+	int length = 0;
+
+	for (; *s; s++)
+		length += _putchar(*s);
+
+	return (length);
+}
+
+/**
+ * _strlen - Finds the length of a string
+ *
+ * @s: string to find the length
+ *
+ * Return: the length of the string
+ */
+int _strlen(char *s)
+{
+	int i = 0;
+
+	while (s[i] != '\0')
+		i++;
+
+	return (i);
 }
 
 /**
@@ -60,7 +89,7 @@ char verify_arg(char *num)
 }
 
 /**
- * multiply - Multiplies two numbers
+ * multiply_numbers - Multiplies two numbers
  *
  * @num1: first number as a string
  * @num2: second number as a string
@@ -68,7 +97,7 @@ char verify_arg(char *num)
  * @len1: length of the first number
  * @len2: length of the second number
  */
-void multiply(char *num1, char *num2, int *result, int len1, int len2)
+void multiply_numbers(char *num1, char *num2, int *result, int len1, int len2)
 {
 	int i, j, product, pos1, pos2, digit1, digit2;
 
@@ -93,12 +122,12 @@ void multiply(char *num1, char *num2, int *result, int len1, int len2)
 }
 
 /**
- * initialize - Initializes an array with 0
+ * initialize_array - Initializes an array with 0
  *
  * @array: array to initialize
  * @size: size of the array
  */
-void initialize(int *array, int size)
+void initialize_array(int *array, int size)
 {
 	int i;
 
