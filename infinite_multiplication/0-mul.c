@@ -62,22 +62,26 @@ void multiply(char *num1, char *num2)
 	}
 
 	while (res[start_index] == 0 && start_index < len1 + len2)
-	{
-		start_index++;
-	}
+		{
+			start_index++;
+		}
 
-	if (start_index == len1 + len2)
-	{
-		_putchar('0');
-	}
-	else
-	{
-		for (i = start_index; i < len1 + len2 + 1; i++)
-			_putchar(res[i] + '0');
-	}
+		if (start_index == len1 + len2)
+		{
+			_putchar('0');
+		}
+		else
+		{
+			for (i = start_index; i < len1 + len2 + 1; i++)
+			{
+				_putchar(res[i] + '0');
+				if ((i - start_index + 1) % 5 == 0 && i < len1 + len2)
+					_putchar(',');
+			}
+		}
 
-	_putchar('\n');
-	free(res);
+		_putchar('\n');
+		free(res);
 }
 
 /**
