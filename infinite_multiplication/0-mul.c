@@ -35,6 +35,9 @@ void multiply(char *num1, char *num2)
 	int len1 = 0, len2 = 0, i, j, carry = 0, result;
 	int *res;
 
+	if (!is_digit(num1) || !is_digit(num2))
+		error_exit();
+
 	len1 = strlen(num1);
 	len2 = strlen(num2);
 
@@ -56,7 +59,6 @@ void multiply(char *num1, char *num2)
 		}
 		res[i + j + 1] = carry;
 	}
-
 	for (i = 0; i < len1 + len2; i++)
 		res[i] += '0';
 
@@ -73,6 +75,7 @@ void multiply(char *num1, char *num2)
 }
 
 
+
 /**
 * main - Entry point
 * @argc: The number of command-line arguments
@@ -81,7 +84,7 @@ void multiply(char *num1, char *num2)
 */
 int main(int argc, char *argv[])
 {
-	if (argc != 3 || !is_digit(argv[1]) || !is_digit(argv[2]))
+	if (argc != 3)
 		error_exit();
 
 	multiply(argv[1], argv[2]);
