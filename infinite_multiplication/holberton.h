@@ -7,8 +7,9 @@
 
 /* Prototypes Task 0*/
 int _putchar(char c);
-void error_exit(void);
-void print_product(int *product, size_t len);
-void multiply(int *product, char *n1, char *n2, size_t len1, size_t len2);
+void print_result(int *array, int size);
+void initialize(int *array, int size);
+void multiply(char *num1, char *num2, int *result, int len1, int len2);
+char verify_arg(char *num);
 
 #endif /* HOLBERTON_H */
