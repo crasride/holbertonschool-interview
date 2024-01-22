@@ -8,7 +8,7 @@
 /* Prototypes Task 0*/
 int _putchar(char c);
 void error_exit(void);
-int is_digit(char *str);
-void multiply(char *num1, char *num2);
+void print_product(int *product, size_t len);
+void multiply(int *product, char *n1, char *n2, size_t len1, size_t len2);
 
 #endif /* HOLBERTON_H */
