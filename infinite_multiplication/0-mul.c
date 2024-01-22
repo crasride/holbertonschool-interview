@@ -1,4 +1,5 @@
 #include "holberton.h"
+#include <stdlib.h>
 
 /**
  * error_exit - Prints "Error" and exits with status 98
@@ -73,13 +74,20 @@ void multiply(char *num1, char *num2)
 		res[i + j + 1] = carry;
 	}
 
-	while (res[start_index] == 0 && start_index < len1 + len2 - 1)
+	while (res[start_index] == 0 && start_index < len1 + len2)
 	{
 		start_index++;
 	}
 
-	for (i = start_index; i < len1 + len2; i++)
-		_putchar(res[i] + '0');
+	if (start_index == len1 + len2)
+	{
+		_putchar('0');
+	}
+	else
+	{
+		for (i = start_index; i < len1 + len2 + 1; i++)
+			_putchar(res[i] + '0');
+	}
 
 	_putchar('\n');
 	free(res);
@@ -93,11 +101,12 @@ void multiply(char *num1, char *num2)
  */
 int main(int argc, char *argv[])
 {
-	if (argc != 3 || !is_digit(argv[1]) || !is_digit(argv[2]))
+	if (argc != 3)
 		error_exit();
 
 	multiply(argv[1], argv[2]);
 
 	return (0);
 }
+
 
