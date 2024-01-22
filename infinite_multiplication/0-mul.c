@@ -39,8 +39,8 @@ void multiply(char *num1, char *num2)
 	if (!is_digit(num1) || !is_digit(num2))
 		error_exit();
 
-	len1 = _strlen(num1);
-	len2 = _strlen(num2);
+	len1 = strlen(num1);
+	len2 = strlen(num2);
 
 	res = malloc(sizeof(int) * (len1 + len2 + 1));
 	if (!res)
