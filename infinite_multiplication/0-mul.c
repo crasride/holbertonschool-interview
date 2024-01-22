@@ -39,15 +39,14 @@ void multiply(char *num1, char *num2)
 	if (!is_digit(num1) || !is_digit(num2))
 		error_exit();
 
-	len1 = strlen(num1);
-	len2 = strlen(num2);
+	len1 = _strlen(num1);
+	len2 = _strlen(num2);
 
 	res = malloc(sizeof(int) * (len1 + len2 + 1));
 	if (!res)
 		error_exit();
 
-	for (i = 0; i < len1 + len2 + 1; i++)
-		res[i] = 0;
+	initialize_array(res, len1 + len2 + 1);
 
 	for (i = len1 - 1; i >= 0; i--)
 	{
@@ -62,26 +61,22 @@ void multiply(char *num1, char *num2)
 	}
 
 	while (res[start_index] == 0 && start_index < len1 + len2)
-		{
-			start_index++;
-		}
+	{
+		start_index++;
+	}
 
-		if (start_index == len1 + len2)
-		{
-			_putchar('0');
-		}
-		else
-		{
-			for (i = start_index; i < len1 + len2 + 1; i++)
-			{
-				_putchar(res[i] + '0');
-				if ((i - start_index + 1) % 5 == 0 && i < len1 + len2)
-					_putchar(',');
-			}
-		}
+	if (start_index == len1 + len2)
+	{
+		_putchar('0');
+	}
+	else
+	{
+		for (i = start_index; i < len1 + len2 + 1; i++)
+			_putchar(res[i] + '0');
+	}
 
-		_putchar('\n');
-		free(res);
+	_putchar('\n');
+	free(res);
 }
 
 /**
