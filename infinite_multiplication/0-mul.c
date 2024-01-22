@@ -100,7 +100,7 @@ void multiply(char *num1, char *num2)
  */
 int main(int argc, char *argv[])
 {
-	if (argc != 3)
+	if (argc != 3 || !is_digit(argv[1]) || !is_digit(argv[2]))
 		error_exit();
 
 	multiply(argv[1], argv[2]);
