@@ -143,7 +143,12 @@ It is a program that makes requests to the Reddit API to count the frequency of 
 ### Description
 This code implements the heap_extract function to extract the root node of a `Max Binary Heap` and restore the max heap property.
 
+## [Infinite Multiplication](./infinite_multiplication/)
+### Description
 
+## [Rotate 2D Matrix](./rotate_2d_matrix/)
+### Description
+The rotate_2d_matrix function takes a square `two-dimensional` array as input and rotates the array 90 degrees clockwise in-place. First, perform a transpose of the matrix by `swapping` elements along the main diagonal. Then, `invert` each row of the matrix. This process directly modifies the input matrix, thus achieving efficient 90 degree rotation in
 
 ## Author
 
