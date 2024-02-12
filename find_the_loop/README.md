@@ -52,7 +52,7 @@ listint_t *find_listint_loop(listint_t *head);
 
 ## Tasks
 
-0. Find the loop
+### [0. Find the loop](./0-find_loop.c)
 
 Write a function that finds the loop in a linked list.
 
