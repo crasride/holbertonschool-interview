@@ -152,7 +152,7 @@ The rotate_2d_matrix function takes a square `two-dimensional` array as input an
 
 ## [Find the Loop](./rotate_2d_matrix/)
 ### Description
-The function find_listint_loop is designed to detect and find the starting node of a loop in a singly linked list. It uses the `Floyd's Tortoise` and `Hare algorithm`, where two pointers traverse the list at different speeds. If there is a loop, the two pointers will eventually meet at some point within the loop.
+The function find_listint_loop is designed to detect and find the starting node of a loop in a singly linked list. It uses the `Floyd's Tortoise` and `Hare algorithm`, where two pointers `traverse` the list at different `speeds`. If there is a loop, the two pointers will eventually meet at some point within the loop.
 
 ## Author
 
