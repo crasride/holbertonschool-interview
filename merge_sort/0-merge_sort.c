@@ -33,14 +33,12 @@ void merge(int *array, int *temp, size_t left, size_t mid, size_t right)
 		}
 		k++;
 	}
-
 	while (i < mid)
 	{
 		temp[k] = array[i];
 		i++;
 		k++;
 	}
-
 	while (j < right)
 	{
 		temp[k] = array[j];
