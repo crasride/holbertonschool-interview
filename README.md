@@ -154,6 +154,12 @@ The rotate_2d_matrix function takes a square `two-dimensional` array as input an
 ### Description
 The function find_listint_loop is designed to detect and find the starting node of a loop in a singly linked list. It uses the `Floyd's Tortoise` and `Hare algorithm`, where two pointers `traverse` the list at different `speeds`. If there is a loop, the two pointers will eventually meet at some point within the loop.
 
+## [Merge Sort](./merge_sort/)
+### Description
+The key idea behind Merge Sort is that it exploits the fact that it is easier to `merge` two sorted arrays than to `sort` an unsorted array directly. This algorithm guarantees a time complexity of `O(nlog(n))`in all cases, making it more efficient than some other sorting algorithms for large datasets.
+
+
+
 ## Author
 
 * José Fernàndez Armas
