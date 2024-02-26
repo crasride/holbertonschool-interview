@@ -4,23 +4,25 @@
 
 def makeChange(coins, total):
     """
-    Find fewest number of coins needed to reach total.
-
-    Args:
-        coins: list of coin values
-        total: value to reach
-
-    Returns:
-        Minimum number of coins needed to reach total.
+    Given a pile of coins of different values,
+    determine the fewest number of coins needed to meet a given amount total.
+    dp = (Dynamic Programmin) store the minimum amount of coins
     """
-    if total < 1:
+    if total <= 0:
         return 0
 
-    min_arr = [float("inf")] * (total + 1)
-    min_arr[0] = 0
+    # Initialize a list to store the minimum number of coins needed for each
+    # amount from 0 to total
 
-    for i in range(1, total + 1):
-        for c in coins:
-            min_arr[i] = min(min_arr[i], min_arr[i - c] + 1)
+    dp = [float('inf')] * (total + 1)
+    dp[0] = 0
 
-    return min_arr[total] if min_arr[total] != float("inf") else -1
+    # Iterate through each coin value
+    for coin in coins:
+        for amount in range(coin, total + 1):
+            # Update the minimum number of coins needed for the current amount
+            dp[amount] = min(dp[amount], dp[amount - coin] + 1)
+
+    # If dp[total] is still infinity, it means the total cannot
+    # be met by any combination of coins
+    return dp[total] if dp[total] != float('inf') else -1
