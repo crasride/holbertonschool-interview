@@ -159,6 +159,11 @@ The function find_listint_loop is designed to detect and find the starting node 
 The key idea behind Merge Sort is that it exploits the fact that it is easier to `merge` two sorted arrays than to `sort` an unsorted array directly. This algorithm guarantees a time complexity of `O(nlog(n))`in all cases, making it more efficient than some other sorting algorithms for large datasets.
 
 
+## [Making Change](./making_change/t/)
+### Description
+The `makeChange` function aims to determine the minimum number of coins needed to reach a given total amount, using a set of coins with different denominations. The algorithm prioritizes the use of higher denomination coins, sorting them in descending order to minimize the total number of coins used.
+
+
 
 ## Author
 
