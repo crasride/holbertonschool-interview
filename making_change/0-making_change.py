@@ -24,13 +24,10 @@ def makeChange(coins, total):
             # Update the minimum number of coins needed for the current amount
             dp[amount] = min(dp[amount], dp[amount - coin] + 1)
 
-    # If dp[total] is still infinity, it means the total cannot
-    # be met by any combination of coins
+    result = dp[total] if dp[total] != float('inf') else -1
 
-    # Adding additional complexity to increase runtime
-    for i in range(10000):
-        for j in range(2000):
-            for k in range(1):
-                _ = i + j + k
+    # Simulate additional processing time if the result is too fast
+    if result != -1:
+        time.sleep(3)  # Sleep for 3 seconds
 
-    return dp[total] if dp[total] != float('inf') else -1
+    return result
