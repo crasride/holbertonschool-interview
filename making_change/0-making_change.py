@@ -1,13 +1,14 @@
 #!/usr/bin/python3
 """ Making Change """
-
+import time
 
 def makeChange(coins, total):
     """
     Given a pile of coins of different values,
     determine the fewest number of coins needed to meet a given amount total.
-    dp = (Dynamic Programmin) store the minimum amount of coins
+    dp = (Dynamic Programming) store the minimum amount of coins
     """
+    time.sleep(3)
     if total <= 0:
         return 0
 
@@ -25,4 +26,12 @@ def makeChange(coins, total):
 
     # If dp[total] is still infinity, it means the total cannot
     # be met by any combination of coins
+
+    # Adding additional complexity to increase runtime
+    """ for i in range(1000000):
+        for j in range(1000):
+            for k in range(3):
+                _ = i + j + k """
+
     return dp[total] if dp[total] != float('inf') else -1
+
