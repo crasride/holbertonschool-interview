@@ -159,11 +159,13 @@ The function find_listint_loop is designed to detect and find the starting node 
 The key idea behind Merge Sort is that it exploits the fact that it is easier to `merge` two sorted arrays than to `sort` an unsorted array directly. This algorithm guarantees a time complexity of `O(nlog(n))`in all cases, making it more efficient than some other sorting algorithms for large datasets.
 
 
-## [Making Change](./making_change/t/)
+## [Making Change](./making_change/)
 ### Description
 The `makeChange` function aims to determine the minimum number of coins needed to reach a given total amount, using a set of coins with different denominations. The algorithm prioritizes the use of higher denomination coins, sorting them in descending order to minimize the total number of coins used.
 
-
+## [Double Circular Linked List](./double_circular_linked_list/)
+### Description
+The provided code implements two `C` functions for manipulating a `doubly circular list`. These functions allow adding new nodes to the end or beginning of the list, each node containing a string of characters `(str)`. Including the use of dynamic memory `(malloc and strdup)` as well as properly updating pointers to maintain the circular list structure.
 
 ## Author
 
