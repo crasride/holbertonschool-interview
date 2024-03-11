@@ -167,6 +167,25 @@ The `makeChange` function aims to determine the minimum number of coins needed t
 ### Description
 The provided code implements two `C` functions for manipulating a `doubly circular list`. These functions allow adding new nodes to the end or beginning of the list, each node containing a string of characters `(str)`. Including the use of dynamic memory `(malloc and strdup)` as well as properly updating pointers to maintain the circular list structure.
 
+## [Radix Sort](./radix_sort/)
+### Description
+A sorting algorithm that arranges the elements of a list based on each digit, starting with the least significant and moving toward the most significant.
+
+**Least Significant Digit (LSD):** The least significant digit of a number, it is the first digit used for sorting during the first iteration of the Radix Sort algorithm.
+
+**Counting Algorithm:** A counting algorithm is used to arrange the elements based on the current digit during each iteration of the Radix Sort. This step involves counting the frequency of each digit and using that information to place the items in the correct position.
+
+**Stable Algorithm:** Refers to the fact that the relative order of elements with equal digits is maintained during the sorting process. This ensures that if two elements have the same digit in a particular position, their relative order will not be altered during sorting.
+
+**Significant Digit:** Each position in a number that contributes to the total value of the number. In the context of Radix Sort, iterations are performed based on the least significant digits towards the most significant digits.
+
+**Iteration:** Each pass through the array during which the elements are sorted based on a specific digit.
+
+**Relative Order:** The relative position of the elements in the list before and after an iteration of the Radix Sort algorithm.
+
+**Complete Sorting:** The final result of the process, where all elements are sorted by all digits, from least significant to most significant.
+
+
 ## Author
 
 * José Fernàndez Armas
