@@ -20,10 +20,13 @@ def island_perimeter(grid):
     rows = len(grid)
     cols = len(grid[0])
 
+    # Traverse through each cell of the grid
     for i in range(rows):
         for j in range(cols):
+            # If the cell represents land, add 4 to perimeter
             if grid[i][j] == 1:
                 perimeter += 4
+                # If the adjacent cell is also land, subtract 2 from perimeter
                 if i > 0 and grid[i - 1][j] == 1:
                     perimeter -= 2
                 if j > 0 and grid[i][j - 1] == 1:
