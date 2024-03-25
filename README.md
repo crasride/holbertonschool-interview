@@ -190,6 +190,10 @@ A sorting algorithm that arranges the elements of a list based on each digit, st
 
 This code implements a function that calculates the perimeter of an island represented by a `2D` grid. The grid consists of `0` and `1`, where 0 represents `water` and 1 represents `land`. The function traverses each grid cell and calculates the perimeter based on the number of land cells and their adjacent land cells. Finally, it returns the total perimeter of the island.
 
+## [AVL Trees](./avl_trees/)
+### Description
+
+It is a tool for checking whether a given binary tree is a `valid` AVL tree, which can be useful for ensuring that a tree data structure meets certain balance properties.
 
 ## Author
 
