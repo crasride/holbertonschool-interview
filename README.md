@@ -5,7 +5,7 @@
 <h1 align="center">Holberton School - Preparation - Algorithms</h1>
 
 
-### [Project Badge Lockboxes](./lockboxes/)
+## [Project Badge Lockboxes](./lockboxes/)
 
 <Description>
 
@@ -18,7 +18,7 @@ Each box contains a list of keys that correspond to other boxes, and the challen
 
 
 ---
-### [Project Insert in sorted linked list](./insert_in_sorted_linked_list/)
+## [Project Insert in sorted linked list](./insert_in_sorted_linked_list/)
 ### Description
 The "Insert in sorted linked list" algorithm allows the sorted insertion of a new node into a linked list, ensuring that the list remains sorted from smallest to largest based on the value contained in the nodes (n). 
 
