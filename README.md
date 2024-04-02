@@ -16,8 +16,7 @@ Each box contains a list of keys that correspond to other boxes, and the challen
 
 </Description>
 
-
-##
+---
 ## [Project Insert in sorted linked list](./insert_in_sorted_linked_list/)
 ### Description
 The "Insert in sorted linked list" algorithm allows the sorted insertion of a new node into a linked list, ensuring that the list remains sorted from smallest to largest based on the value contained in the nodes (n). 
