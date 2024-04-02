@@ -2,7 +2,10 @@
 	<img src="./images/algo.png" alt="C Logo">
 </p>
 
+---
+
 <h1 align="center">Holberton School - Preparation - Algorithms</h1>
+
 
 ## [Project Badge Lockboxes](./lockboxes/)
 
@@ -14,6 +17,7 @@ The goal of this algorithm is to determine if it is possible to open all boxes w
 Each box contains a list of keys that correspond to other boxes, and the challenge is to determine if all the boxes can be opened by following the keys provided.
 
 </Description>
+
 
 ---
 ## [Project Insert in sorted linked list](./insert_in_sorted_linked_list/)
