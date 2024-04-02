@@ -2,6 +2,8 @@
 	<img src="./images/algo.png" alt="C Logo">
 </p>
 
+<br>
+
 ---
 
 <h1 align="center">Holberton School - Preparation - Algorithms</h1>
