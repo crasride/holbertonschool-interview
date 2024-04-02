@@ -200,7 +200,7 @@ It is a tool for checking whether a given binary tree is a `valid` AVL tree, whi
 
 The wildcmp function compares `two strings`, s1 and s2, allowing s2 to contain the `special character` '' which can represent any string (including an empty string). It uses a `recursive` approach to compare the characters in both strings, especially handling the '' character. If both strings can be considered identical, return 1; otherwise, it returns 0. This function provides a flexible way to compare strings, allowing partial matches based on the '*' as a `wildcard`.
 
-Wild Compare
+
 ## Author
 
 * José Fernàndez Armas
