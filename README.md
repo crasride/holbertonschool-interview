@@ -226,6 +226,30 @@ It is a tool for checking whether a given binary tree is a `valid` AVL tree, whi
 The wildcmp function compares `two strings`, s1 and s2, allowing s2 to contain the `special character` '' which can represent any string (including an empty string). It uses a `recursive` approach to compare the characters in both strings, especially handling the '' character. If both strings can be considered identical, return 1; otherwise, it returns 0. This function provides a flexible way to compare strings, allowing partial matches based on the '*' as a `wildcard`.
 
 ---
+
+## [Pascal's Triangle](./pascal_triangle/)
+### Description
+
+`Pascal's triangle i`s an infinite triangle-shaped numerical pattern where each number is the sum of the two numbers directly above it in the triangle.
+
+The function begins by creating a list `Triangle` initialized with a list containing only the number 1, if `n` is greater than 0, which represents the first level of Pascal's triangle. Then, for each subsequent level of the triangle (represented by the range 1 to `n-1`), the function generates a new row of the triangle by calculating the sum of the two numbers directly above each number in the previous row.
+
+Finally, the function returns the complete list representing Pascal's triangle up to level `n`.
+
+If `n` is less than or equal to 0, the function returns an empty list, since there are no levels to display in Pascal's triangle in this case.
+
+---
+
+
+## [RegEx](./regex/)
+### Description
+The `regex_match` function checks whether a given pattern matches a given string, using simplified regular expression rules. It takes two parameters: the string `str` to parse and the pattern `pattern` to compare to the string.
+
+In short, the function looks for matches between the pattern and the string, taking into account special characters such as `'*'` and `'.'`, and returns 1 if there is a match and 0 if there is not.
+
+---
+
+
 ## Author
 
 * José Fernàndez Armas
