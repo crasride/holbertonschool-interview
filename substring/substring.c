@@ -60,11 +60,11 @@ int *find_substring(char const *s, char const **words, int nb_words, int *n)
 	if (!indices)
 		return (NULL);
 	*n = 0; /* Inicializamos el contador de índices */
-	/* Recorremos la cadena */
-	for (i = 0; i <= s_len - total_len; i++)
+	for (i = 0; i <= s_len - total_len; i++) /* Recorremos la cadena */
 	{
 		/* Creamos una tabla temporal para verificar las palabras */
 		int *seen = calloc(nb_words, sizeof(int));
+		int valid;
 		/* Si no se pudo reservar memoria, liberamos y devolvemos NULL */
 		if (!seen)
 		{
@@ -72,7 +72,7 @@ int *find_substring(char const *s, char const **words, int nb_words, int *n)
 			return (NULL);
 		}
 		/* Marcamos las palabras vistos en la subcadena */
-		int valid = mark_words_in_substring(s + i, words, nb_words, word_len, seen);
+		valid = mark_words_in_substring(s + i, words, nb_words, word_len, seen);
 		/* Si todas las palabras están en la subcadena */
 		if (valid)
 		{
