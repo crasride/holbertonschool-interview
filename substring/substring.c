@@ -47,18 +47,18 @@ static int mark_words_in_substring(char const *s, char const **words,
 */
 int *find_substring(char const *s, char const **words, int nb_words, int *n)
 {
-	if (!s || !words || nb_words <= 0)
-		return (NULL);
 	/* Tamaño de la subcadena y la longitud de las palabras */
 	int s_len = strlen(s); /* Longitud de la cadena */
 	int word_len = strlen(words[0]); /* Longitud de las palabras */
 	int total_len = nb_words * word_len; /* Longitud total de las palabras */
 	int *indices = malloc(sizeof(int) * s_len); /* Índices de las subcadenas */
+	int i;
+
+	if (!s || !words || nb_words <= 0)
+		return (NULL);
 
 	if (!indices)
 		return (NULL);
-	/* Contadores */
-	int i;
 	*n = 0; /* Inicializamos el contador de índices */
 	/* Recorremos la cadena */
 	for (i = 0; i <= s_len - total_len; i++)
