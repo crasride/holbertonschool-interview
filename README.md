@@ -248,6 +248,12 @@ The `regex_match` function checks whether a given pattern matches a given string
 In short, the function looks for matches between the pattern and the string, taking into account special characters such as `'*'` and `'.'`, and returns 1 if there is a match and 0 if there is not.
 
 ---
+## [Substring with concatenated words](./substring)
+### Description
+
+In summary, the code implements an algorithm to find all valid substrings in a string `s`, where each substring is a concatenation of a specific set of `words`. It uses a sliding window to iterate over the string and a helper function to check if all words are present in a given substring. The indexes where the valid substrings are found are stored in a dynamic array that is returned as a result. If no valid substring is found, NULL is returned.
+
+---
 
 
 ## Author
