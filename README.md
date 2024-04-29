@@ -255,6 +255,12 @@ In summary, the code implements an algorithm to find all valid substrings in a s
 
 ---
 
+## [Prime Game](./primegame/)
+### Description
+
+Determines the winner of a game where players remove prime numbers and their multiples from a set of consecutive integers.
+
+
 
 ## Author
 
