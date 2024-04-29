@@ -3,6 +3,7 @@
 Prime Game
 """
 
+
 def is_prime(num):
     """ Returns True if num is prime, False otherwise """
     if num <= 1:
@@ -18,17 +19,24 @@ def is_prime(num):
         i += 6
     return True
 
+
 def isWinner(x, nums):
     """ Returns the name of the player that won the most rounds """
-    winner = None
-    for i in range(x):
-        num = nums[i]
+    if x <= 0:
+        return None
+
+    ben_wins = 0
+    maria_wins = 0
+    for num in nums:
         prime_count = sum(1 for j in range(2, num + 1) if is_prime(j))
         if prime_count % 2 == 0:
-            winner = "Ben" if i % 2 == 0 else "Maria"
+            ben_wins += 1
         else:
-            winner = "Maria" if i % 2 == 0 else "Ben"
-    return winner
+            maria_wins += 1
 
-
-
+    if ben_wins > maria_wins:
+        return "Ben"
+    elif maria_wins > ben_wins:
+        return "Maria"
+    else:
+        return None
