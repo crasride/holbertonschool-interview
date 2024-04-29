@@ -4,7 +4,7 @@ Prime Game
 """
 
 def is_prime(num):
-
+    """ Returns True if num is prime, False otherwise """
     if num <= 1:
         return False
     if num <= 3:
@@ -19,6 +19,7 @@ def is_prime(num):
     return True
 
 def isWinner(x, nums):
+    """ Returns the name of the player that won the most rounds """
     winner = None
     for i in range(x):
         num = nums[i]
